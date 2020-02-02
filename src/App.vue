@@ -1,12 +1,10 @@
 <script>
 
-    import Main from './components/Main'
+    import Main from '@/components/Main'
 
     export default {
         name: 'app',
-        components: {
-            Main
-        },
+        components: { Main },
         created() {
             this.$socket.emit('message', 'App.vue created')
         }
