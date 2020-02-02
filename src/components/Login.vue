@@ -6,16 +6,19 @@
 
         data() {
             return {
-                username: undefined,
-                password: undefined
+                loginData: {
+                    username: undefined,
+                    password: undefined
+                }
             }
         },
 
         methods: {
+
             login() {
-                // eslint-disable-next-line no-console
-                console.log(this.username, this.password)
+                this.$socket.emit('login', this.loginData)
             }
+
         }
 
     }
@@ -28,12 +31,12 @@
 
         <div>
             <label for="username">Имя пользователя: </label>
-            <input class="username-input" id="username" v-model="username"/>
+            <input class="username-input" id="username" v-model="loginData.username"/>
         </div>
 
         <div>
             <label for="password">Пароль: </label>
-            <input class="password-input"  id="password" type="password" v-model="password"/>
+            <input class="password-input"  id="password" type="password" v-model="loginData.password"/>
         </div>
 
         <button class="login-button" @click="login">Вход</button>
