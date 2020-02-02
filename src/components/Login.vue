@@ -55,6 +55,7 @@
         width: 128px;
         padding: 1px;
         border-radius: 8px;
+        outline: none;
     }
 
     .username-input, .password-input {
