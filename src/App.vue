@@ -12,6 +12,9 @@ export default {
   name: 'app',
   components: {
     HelloWorld
+  },
+  created() {
+    this.$socket.emit('message', 'App.vue created')
   }
 }
 </script>
