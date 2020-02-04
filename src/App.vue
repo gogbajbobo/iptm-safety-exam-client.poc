@@ -24,6 +24,7 @@
     <div id="app">
 
         <the-header/>
+        <router-view/>
 
     </div>
 
