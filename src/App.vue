@@ -1,13 +1,20 @@
 <script>
 
     import Main from '@/components/Main'
+    import socket_events from '@/services/socket_events'
 
     export default {
+
         name: 'app',
+
         components: { Main },
+
         created() {
             this.$socket.emit('message', 'App.vue created')
-        }
+        },
+
+        sockets: socket_events(),
+
     }
 
 </script>
