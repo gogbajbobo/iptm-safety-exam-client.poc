@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueSocketIO from 'vue-socket.io'
+import events from '@/socket/events'
 
 const isProduction = process.env.NODE_ENV === 'production'
 
@@ -11,3 +12,4 @@ const socket = new VueSocketIO({
 Vue.use(socket)
 
 export default socket
+export { events }

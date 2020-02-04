@@ -1,7 +1,7 @@
 <script>
 
     import Main from '@/components/Main'
-    import socket_events from '@/services/socket_events'
+    import { events } from '@/socket'
 
     export default {
 
@@ -13,7 +13,7 @@
             this.$socket.emit('message', 'App.vue created')
         },
 
-        sockets: socket_events(),
+        sockets: events,
 
     }
 
