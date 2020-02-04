@@ -1,19 +1,19 @@
 <script>
 
-    import Main from '@/components/Main'
-    import socket_events from '@/services/socket_events'
+    import TheHeader from '@/components/TheHeader'
+    import { events } from '@/socket'
 
     export default {
 
         name: 'app',
 
-        components: { Main },
+        components: { TheHeader },
 
         created() {
             this.$socket.emit('message', 'App.vue created')
         },
 
-        sockets: socket_events(),
+        sockets: events,
 
     }
 
@@ -23,8 +23,8 @@
 
     <div id="app">
 
-        <img alt="Vue logo" src="./assets/iptm_logo.png">
-        <Main title="Экзамены по охране труда и технике безопасности"/>
+        <the-header/>
+        <router-view/>
 
     </div>
 

@@ -1,4 +1,5 @@
-const socket_events = [
+const events = [
+
     'connect',
     'connect_error',
     'connect_timeout',
@@ -11,15 +12,18 @@ const socket_events = [
     'reconnect_failed',
     'ping',
     'pong',
+
+    'message',
+
 ]
 
-export default () => {
+export default (() => {
 
-    return socket_events.reduce((result, se) => {
+    return events.reduce((result, se) => {
 
         result[se] = () => {}
         return result
 
     }, {})
 
-}
+})()
