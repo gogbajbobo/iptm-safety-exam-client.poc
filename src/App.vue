@@ -2,6 +2,7 @@
 
     import TheHeader from '@/components/TheHeader'
     import { events } from '@/socket'
+    import { SOCKET } from '@/socket/events'
 
     export default {
 
@@ -10,7 +11,7 @@
         components: { TheHeader },
 
         created() {
-            this.$socket.emit('message', 'App.vue created')
+            this.$socket.emit(SOCKET.MESSAGE, 'App.vue created')
         },
 
         sockets: events,

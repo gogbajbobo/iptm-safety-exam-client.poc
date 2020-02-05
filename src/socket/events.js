@@ -1,21 +1,24 @@
-const events = [
+export const SOCKET = {
 
-    'connect',
-    'connect_error',
-    'connect_timeout',
-    'error',
-    'disconnect',
-    'reconnect',
-    'reconnect_attempt',
-    'reconnecting',
-    'reconnect_error',
-    'reconnect_failed',
-    'ping',
-    'pong',
+    CONNECT: 'connect',
+    CONNECT_ERROR: 'connect_error',
+    CONNECT_TIMEOUT: 'connect_timeout',
+    ERROR: 'error',
+    DISCONNECT: 'disconnect',
+    RECONNECT: 'reconnect',
+    RECONNECT_ATTEMPT: 'reconnect_attempt',
+    RECONNECTING: 'reconnecting',
+    RECONNECT_ERROR: 'reconnect_error',
+    RECONNECT_FAILED: 'reconnect_failed',
+    PING: 'ping',
+    PONG: 'pong',
 
-    'message',
+    MESSAGE: 'message',
+    LOGIN: 'login',
 
-]
+}
+
+const events = Object.values(SOCKET)
 
 export default (() => {
 

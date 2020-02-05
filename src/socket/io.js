@@ -1,4 +1,5 @@
-import socket from '../socket'
+import socket from '@/socket'
+import { SOCKET } from '@/socket/events'
 import logger from '@/services/logger'
 import router from '@/router'
 
@@ -6,7 +7,7 @@ const { io } = socket
 
 const login = data => {
 
-    io.emit('login', data, response => {
+    io.emit(SOCKET.LOGIN, data, response => {
 
         if (response.error)
             return logger.error('auth error')
