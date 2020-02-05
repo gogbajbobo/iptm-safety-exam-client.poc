@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/components/Login'
+import Main from '@/components/Main'
 
 
 Vue.use(Router)
@@ -14,8 +15,18 @@ const login = {
     }
 }
 
+const main = {
+    path: '/main',
+    name: Main.name,
+    component: Main,
+    meta: {
+        anonymousAccess: true
+    }
+}
+
 const routes = [
-    login
+    login,
+    main,
 ]
 
 const router = new Router({
