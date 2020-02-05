@@ -1,5 +1,7 @@
 <script>
 
+    import io from '@/socket/io'
+
     export default {
 
         name: 'Login',
@@ -16,7 +18,7 @@
         methods: {
 
             login() {
-                this.$socket.emit('login', this.loginData)
+                io.login(this.loginData)
             }
 
         }
