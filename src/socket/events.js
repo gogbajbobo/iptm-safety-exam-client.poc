@@ -17,16 +17,3 @@ export const SOCKET = {
     LOGIN: 'login',
 
 }
-
-const events = Object.values(SOCKET)
-
-export default (() => {
-
-    return events.reduce((result, se) => {
-
-        result[se] = () => {}
-        return result
-
-    }, {})
-
-})()
