@@ -4,11 +4,10 @@ import logger from '@/services/logger'
 import router from '@/router'
 // import store, { SOCKET_ACTION_PREFIX } from '@/store'
 
-const { io } = socket
 
 const login = data => {
 
-    io.emit(SOCKET.LOGIN, data, response => {
+    socket.emit(SOCKET.LOGIN, data, response => {
 
         if (response.error)
             return logger.error('auth error')
