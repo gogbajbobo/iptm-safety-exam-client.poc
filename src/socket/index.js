@@ -1,7 +1,7 @@
 import io from 'socket.io-client'
 
 const isProduction = process.env.NODE_ENV === 'production'
-isProduction || (localStorage.debug = 'socket.io-client*')
+isProduction || (localStorage.debug = 'socket.io*')
 
 const socket = io('http://localhost:8081')
 
