@@ -1,24 +1,22 @@
-import socket from '@/socket'
+import { openSocket, closeSocket } from '@/socket'
 import { SOCKET } from '@/socket/events'
 import logger from '@/services/logger'
-import router from '@/router'
-// import store, { SOCKET_ACTION_PREFIX } from '@/store'
+import store from '@/store'
 
+const login = loginData => {
 
-const login = data => {
+    const socket = openSocket(loginData)
 
-    socket.emit(SOCKET.LOGIN, data, response => {
+    socket.on(SOCKET.AUTHORIZED, user => {
 
-        if (response.error)
-            return logger.error('auth error')
+        logger.info('socket authorize:', user)
+        user || closeSocket()
 
-        // store.dispatch(`${ SOCKET_ACTION_PREFIX }${ SOCKET.LOGIN }`, 'test')
-        //     .catch(logger.error)
-
-        router.push({ name: 'Main' })
+        store.dispatch(`login`, user)
             .catch(logger.error)
 
     })
+    socket.connect()
 
 }
 
