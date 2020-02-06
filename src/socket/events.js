@@ -13,6 +13,7 @@ export const SOCKET = {
     PING: 'ping',
     PONG: 'pong',
 
+    AUTHORIZED: 'authorized',
     MESSAGE: 'message',
     LOGIN: 'login',
 
