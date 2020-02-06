@@ -7,6 +7,7 @@ import createMutationsSharer from 'vuex-shared-mutations'
 Vue.use(Vuex)
 
 const initialState = {
+    user: null
 }
 
 const store = new Vuex.Store({
@@ -17,9 +18,11 @@ const store = new Vuex.Store({
     state: initialState,
 
     mutations: {
+        'login': (state, user) => { state.user = user }
     },
 
     actions: {
+        'login': ({ commit }, user) => commit('login', user)
     },
 
     plugins: [
