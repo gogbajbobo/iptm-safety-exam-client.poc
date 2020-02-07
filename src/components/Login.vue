@@ -1,6 +1,6 @@
 <script>
 
-    import io from '@/socket/io'
+    import store from '@/store'
 
     export default {
 
@@ -18,7 +18,7 @@
         methods: {
 
             login() {
-                io.login(this.loginData)
+                store.dispatch('login', this.loginData)
             }
 
         }

@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import PersistedState from 'vuex-persistedstate'
 import createMutationsSharer from 'vuex-shared-mutations'
+import { login } from '@/services/requests'
+import logger from '@/services/logger';
 
 
 Vue.use(Vuex)
@@ -22,7 +24,12 @@ const store = new Vuex.Store({
     },
 
     actions: {
-        'login': ({ commit }, user) => commit('login', user)
+        'login': (context, { username, password }) => {
+
+            return login({ username, password })
+                .catch(logger.error)
+
+        }
     },
 
     plugins: [
