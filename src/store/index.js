@@ -20,7 +20,7 @@ const store = new Vuex.Store({
     state: initialState,
 
     mutations: {
-        [mutations.login]: (state, user) => { state.user = user }
+        [mutations.login]: (state, user) => { state.user = user },
     },
 
     actions: {
@@ -29,7 +29,7 @@ const store = new Vuex.Store({
 
     plugins: [
         PersistedState(),
-        createMutationsSharer({ predicate: [] })
+        createMutationsSharer({ predicate: [] }),
     ],
 
     strict: process.env.NODE_ENV !== 'production'
