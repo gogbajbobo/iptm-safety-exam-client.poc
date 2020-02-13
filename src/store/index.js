@@ -24,7 +24,15 @@ const store = new Vuex.Store({
     },
 
     actions: {
-        [actions.login]: (context, { username, password }) => login({ username, password })
+
+        [actions.login]: ({ commit }, { username, password }) => {
+
+            return login({ username, password })
+                .then(user => commit(mutations.login, user))
+                .catch(() => {})
+
+        },
+
     },
 
     plugins: [
