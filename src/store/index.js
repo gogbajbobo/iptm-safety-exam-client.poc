@@ -4,6 +4,7 @@ import PersistedState from 'vuex-persistedstate'
 import createMutationsSharer from 'vuex-shared-mutations'
 import { mutations, actions } from '@/store/constants'
 import { login } from '@/services/requests'
+import { openSocket, closeSocket } from '@/socket'
 
 
 Vue.use(Vuex)
@@ -43,5 +44,11 @@ const store = new Vuex.Store({
     strict: process.env.NODE_ENV !== 'production'
 
 })
+
+store.watch(
+    state => state.user,
+    user => user ? openSocket().connect() : closeSocket()
+)
+
 
 export default store
