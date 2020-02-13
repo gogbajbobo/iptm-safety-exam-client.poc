@@ -9,8 +9,8 @@
         data() {
             return {
                 loginData: {
-                    username: undefined,
-                    password: undefined
+                    username: '',
+                    password: ''
                 }
             }
         },
