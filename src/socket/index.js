@@ -7,9 +7,9 @@ isProduction || (localStorage.debug = 'socket.io*')
 const socketMock = { emit: () => logger.warn('socket not created') }
 let socket = socketMock
 
-export const openSocket = ({ username, password }) => {
+export const openSocket = () => {
 
-    socket = io('http://localhost:8081', { autoConnect: false, query: { username, password } })
+    socket = io('http://localhost:8081', { autoConnect: false })
     return socket
 
 }
