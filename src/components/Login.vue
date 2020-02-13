@@ -1,6 +1,7 @@
 <script>
 
     import store from '@/store'
+    import { actions } from '@/store/constants'
 
     export default {
 
@@ -16,11 +17,7 @@
         },
 
         methods: {
-
-            login() {
-                store.dispatch('login', this.loginData)
-            }
-
+            login() { store.dispatch(actions.login, this.loginData) }
         }
 
     }
