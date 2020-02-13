@@ -25,7 +25,7 @@ axiosInstance.interceptors.response.use(response => {
 }, error => {
 
     const message = error.response && error.response.data && error.response.data.message
-    message && logger.error(message)
+    logger.error(message || error)
 
     return Promise.reject(error)
 
@@ -35,6 +35,6 @@ axiosInstance.interceptors.response.use(response => {
 export const login = ({ username, password }) => {
 
     const data = { username, password }
-    return axiosInstance.post(loginUrl, data, { withCredentials: true }).catch(logger.error)
+    return axiosInstance.post(loginUrl, data, { withCredentials: true })
 
 }
