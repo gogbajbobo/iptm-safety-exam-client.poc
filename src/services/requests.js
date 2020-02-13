@@ -20,7 +20,7 @@ export const login = ({ username, password }) => {
 
     const data = { username, password }
 
-    return axiosInstance.post(loginUrl, data)
+    return axiosInstance.post(loginUrl, data, { withCredentials: true })
         .then(response => logger.info(response))
         .catch(logger.error)
 
