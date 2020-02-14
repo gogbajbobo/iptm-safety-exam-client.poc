@@ -1,3 +1,5 @@
+import logger from '@/services/logger'
+
 export const SOCKET = {
 
     CONNECT: 'connect',
@@ -13,8 +15,14 @@ export const SOCKET = {
     PING: 'ping',
     PONG: 'pong',
 
-    AUTHORIZED: 'authorized',
     MESSAGE: 'message',
-    LOGIN: 'login',
+
+}
+
+export const listenEvents = socket => {
+
+    socket.on(SOCKET.CONNECT, () => {
+        logger.info(`socket ${ socket.id } connect`)
+    })
 
 }
