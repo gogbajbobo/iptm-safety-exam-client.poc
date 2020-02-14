@@ -19,6 +19,11 @@ const login = {
     }
 }
 
+const _ = {
+    path: '/',
+    redirect: { name: Main.name }
+}
+
 const main = {
     path: '/main',
     name: Main.name,
@@ -30,7 +35,7 @@ const main = {
 
 const routes = [
     login,
-    main,
+    _, main,
 ]
 
 const router = new Router({
