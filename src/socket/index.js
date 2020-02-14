@@ -12,6 +12,9 @@ let socket = socketMock
 
 const openSocket = () => {
 
+    if (socket.connected)
+        return socket
+
     socket = io('http://localhost:8081', { autoConnect: false })
     listenEvents(socket)
 
@@ -19,11 +22,11 @@ const openSocket = () => {
 
 }
 
-const connectSocket = () => openSocket().connect()
+const connectSocket = () => socket.connected || openSocket().connect()
 
 const closeSocket = () => {
 
-    socket.close()
+    socket.connected && socket.close()
     socket = socketMock
 
 }
