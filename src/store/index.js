@@ -4,7 +4,7 @@ import PersistedState from 'vuex-persistedstate'
 import createMutationsSharer from 'vuex-shared-mutations'
 import { mutations, actions } from '@/store/constants'
 import { login } from '@/services/requests'
-import { openSocket, closeSocket } from '@/socket'
+import EventBus, { events } from '@/services/event.bus'
 
 
 Vue.use(Vuex)
@@ -47,7 +47,7 @@ const store = new Vuex.Store({
 
 store.watch(
     state => state.user,
-    user => user ? openSocket().connect() : closeSocket()
+    user => EventBus.$emit(user ? events.LOGIN : events.LOGOUT)
 )
 
 
