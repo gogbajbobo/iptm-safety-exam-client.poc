@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import Login from '@/components/Login'
 import Main from '@/components/Main'
 import EventBus, { events } from '@/services/event.bus'
+import store from '@/store'
+import { getters } from '@/store/constants'
 
 
 Vue.use(Router)
@@ -40,7 +42,7 @@ const anonymousAccessRoutes = routes
 
 router.beforeEach((to, from, next) => {
 
-    const isAuthorized = false
+    const isAuthorized = store.getters[getters.isAuthorized]
 
     if (!isAuthorized) {
 

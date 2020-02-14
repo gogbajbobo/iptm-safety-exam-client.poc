@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import PersistedState from 'vuex-persistedstate'
 import createMutationsSharer from 'vuex-shared-mutations'
-import { mutations, actions } from '@/store/constants'
+import { mutations, actions, getters } from '@/store/constants'
 import { login } from '@/services/requests'
 import EventBus, { events } from '@/services/event.bus'
 
@@ -34,6 +34,10 @@ const store = new Vuex.Store({
 
         },
 
+    },
+
+    getters: {
+        [getters.isAuthorized]: state => Boolean(state.user)
     },
 
     plugins: [
