@@ -1,5 +1,5 @@
 export const mutations = {
-    login: 'login'
+    setUser: 'set user',
 }
 
 export const actions = {

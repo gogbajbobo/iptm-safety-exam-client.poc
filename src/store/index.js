@@ -21,7 +21,7 @@ const store = new Vuex.Store({
     state: initialState,
 
     mutations: {
-        [mutations.login]: (state, user) => { state.user = user },
+        [mutations.setUser]: (state, user) => { state.user = user },
     },
 
     actions: {
@@ -29,7 +29,7 @@ const store = new Vuex.Store({
         [actions.login]: ({ commit }, { username, password }) => {
 
             return login({ username, password })
-                .then(user => commit(mutations.login, user))
+                .then(user => commit(mutations.setUser, user))
                 .catch(() => {})
 
         },
