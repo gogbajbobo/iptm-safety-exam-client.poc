@@ -3,11 +3,17 @@ import logger from '@/services/logger'
 import EventBus, { events } from '@/services/event.bus'
 import helper from '@/services/helper'
 import { listenEvents } from '@/socket/events'
+import store from '@/store'
+import { getters } from '@/store/constants'
 
 
 helper.isProduction || (localStorage.debug = 'socket.io*')
 
-const socketMock = { emit: () => logger.warn('socket not created') }
+const socketMock = {
+    emit: () => logger.warn('socket not created'),
+    connected: false,
+}
+
 let socket = socketMock
 
 const openSocket = () => {
@@ -34,5 +40,9 @@ const closeSocket = () => {
 EventBus.$on(events.LOGIN, connectSocket)
 EventBus.$on(events.LOGOUT, closeSocket)
 
+const isAuthorized = () => store.getters[getters.isAuthorized]
+
+
+export const checkSocket = () => (isAuthorized() && connectSocket()) || closeSocket()
 
 export default socket
