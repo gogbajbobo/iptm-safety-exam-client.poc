@@ -1,4 +1,7 @@
-const isProduction = process.env.NODE_ENV === 'production'
+import helper from '@/services/helper'
+
+
+const { isProduction } = helper
 
 /* eslint-disable no-console */
 export default {

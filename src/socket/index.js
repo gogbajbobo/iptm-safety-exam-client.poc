@@ -1,10 +1,10 @@
 import io from 'socket.io-client'
 import logger from '@/services/logger'
 import EventBus, { events } from '@/services/event.bus'
+import helper from '@/services/helper'
 
 
-const isProduction = process.env.NODE_ENV === 'production'
-isProduction || (localStorage.debug = 'socket.io*')
+helper.isProduction || (localStorage.debug = 'socket.io*')
 
 const socketMock = { emit: () => logger.warn('socket not created') }
 let socket = socketMock

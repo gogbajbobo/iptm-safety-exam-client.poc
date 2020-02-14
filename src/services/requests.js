@@ -1,5 +1,6 @@
 import axios from 'axios'
 import logger from '@/services/logger'
+import helper from '@/services/helper'
 
 
 const axiosInstance = axios.create()
@@ -8,10 +9,8 @@ const
     authPath = `/auth`,
     loginUrl = `${ authPath }/login`
 
-const isProduction = process.env.NODE_ENV === 'production'
-
 axiosInstance.defaults.baseURL =
-    isProduction
+    helper.isProduction
         ? 'http://localhost:8081'
         : 'http://localhost:8081'
 

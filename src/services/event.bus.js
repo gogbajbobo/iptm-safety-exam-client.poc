@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import logger from '@/services/logger'
+import helper from '@/services/helper'
 
 
 const EventBus = new Vue()
@@ -9,8 +10,6 @@ const events = {
     LOGOUT: 'logout'
 }
 
-const isProduction = process.env.NODE_ENV === 'production'
-
 const logEvents = () => {
 
     for (const e of Object.values(events)) {
@@ -19,7 +18,7 @@ const logEvents = () => {
 
 }
 
-if (!isProduction) logEvents()
+if (!helper.isProduction) logEvents()
 
 
 export default EventBus
