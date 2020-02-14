@@ -7,7 +7,7 @@ const EventBus = new Vue()
 
 const events = {
     LOGIN: 'login',
-    LOGOUT: 'logout'
+    LOGOUT: 'logout',
 }
 
 const logEvents = () => {
