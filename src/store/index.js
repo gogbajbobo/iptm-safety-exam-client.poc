@@ -34,6 +34,8 @@ const store = new Vuex.Store({
 
         },
 
+        [actions.logout]: ({ commit }) => commit(mutations.setUser, initialState.user),
+
     },
 
     getters: {
