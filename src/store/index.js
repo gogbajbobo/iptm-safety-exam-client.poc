@@ -37,7 +37,7 @@ const store = new Vuex.Store({
     },
 
     getters: {
-        [getters.isAuthorized]: state => Boolean(state.user)
+        [getters.isAuthorized]: state => Boolean(state.user),
     },
 
     plugins: [

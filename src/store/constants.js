@@ -7,5 +7,5 @@ export const actions = {
 }
 
 export const getters = {
-    isAuthorized: 'isAuthorized'
+    isAuthorized: 'isAuthorized',
 }
