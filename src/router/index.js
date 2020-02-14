@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/components/Login'
 import Main from '@/components/Main'
+import EventBus, { events } from '@/services/event.bus'
 
 
 Vue.use(Router)
@@ -54,5 +55,12 @@ router.beforeEach((to, from, next) => {
     return next()
 
 })
+
+const loginHandler = () => router.push({ name: Main.name })
+const logoutHandler = () => router.push({ name: Login.name })
+
+EventBus.$on(events.LOGIN, loginHandler)
+EventBus.$on(events.LOGOUT, logoutHandler)
+
 
 export default router
