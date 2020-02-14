@@ -21,7 +21,7 @@ const main = {
     name: Main.name,
     component: Main,
     meta: {
-        anonymousAccess: true
+        anonymousAccess: false
     }
 }
 
