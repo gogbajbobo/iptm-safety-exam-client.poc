@@ -1,18 +1,12 @@
 <script>
 
     import TheHeader from '@/components/TheHeader'
-    import socket from '@/socket'
-    import { SOCKET } from '@/socket/events'
 
     export default {
 
         name: 'app',
 
         components: { TheHeader },
-
-        created() {
-            socket.emit(SOCKET.MESSAGE, 'App.vue created')
-        },
 
     }
 
