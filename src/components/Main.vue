@@ -1,8 +1,15 @@
 <script>
 
+    import socket from '@/socket'
+    import { SOCKET } from '@/socket/events'
+
     export default {
 
-        name: 'Main'
+        name: 'Main',
+
+        methods: {
+            testButtonClicked() { socket.emit(SOCKET.MESSAGE, 'test button clicked')}
+        }
 
     }
 
@@ -11,7 +18,7 @@
 <template>
 
     <div>
-        Main
+        <button @click="testButtonClicked">Test</button>
     </div>
 
 </template>
