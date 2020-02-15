@@ -9,12 +9,14 @@ import { getters } from '@/store/constants'
 
 helper.isProduction || (localStorage.debug = 'socket.io-client*')
 
+let socket
+
 const socketMock = {
     emit: () => logger.warn('socket not created'),
     connected: false,
 }
 
-let socket = socketMock
+socket = socketMock
 
 const openSocket = () => {
 
