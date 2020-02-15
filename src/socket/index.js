@@ -39,6 +39,7 @@ const closeSocket = () => {
 
 EventBus.$on(events.LOGIN, connectSocket)
 EventBus.$on(events.LOGOUT, closeSocket)
+const sendMessageToServer = data => socket.emit(SocketEvents.MESSAGE, data)
 
 const isAuthorized = () => store.getters[getters.isAuthorized]
 
