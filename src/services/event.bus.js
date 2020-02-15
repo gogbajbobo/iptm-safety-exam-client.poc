@@ -8,6 +8,7 @@ const EventBus = new Vue()
 const events = {
     LOGIN: 'login',
     LOGOUT: 'logout',
+    SND_MSG_2_SRV: 'send message to server',
 }
 
 const logEvents = () => {
