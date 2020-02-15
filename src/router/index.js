@@ -5,8 +5,6 @@ import Main from '@/components/Main'
 import EventBus, { events } from '@/services/event.bus'
 import store from '@/store'
 import { getters } from '@/store/constants'
-import socket from '@/socket'
-
 
 Vue.use(Router)
 
@@ -47,8 +45,6 @@ const anonymousAccessRoutes = routes
     .map(route => route.name)
 
 router.beforeEach((to, from, next) => {
-
-    socket.checkSocket()
 
     const isAuthorized = store.getters[getters.isAuthorized]
 
