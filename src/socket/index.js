@@ -50,6 +50,7 @@ const sendMessageToServer = data => socket.emit(SocketEvents.MESSAGE, data)
 const isAuthorized = () => store.getters[getters.isAuthorized]
 const checkSocket = () => (isAuthorized() && connectSocket()) || closeSocket()
 
+checkSocket()
 
 EventBus.$on(events.LOGIN, connectSocket)
 EventBus.$on(events.LOGOUT, closeSocket)
