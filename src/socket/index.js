@@ -2,7 +2,7 @@ import io from 'socket.io-client'
 import logger from '@/services/logger'
 import EventBus, { events } from '@/services/event.bus'
 import helper from '@/services/helper'
-import { listenEvents } from '@/socket/events'
+import {listenEvents, SocketEvents} from '@/socket/events'
 import store from '@/store'
 import { getters } from '@/store/constants'
 

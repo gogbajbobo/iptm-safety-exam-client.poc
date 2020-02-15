@@ -1,6 +1,6 @@
 import logger from '@/services/logger'
 
-export const SOCKET = {
+export const SocketEvents = {
 
     CONNECT: 'connect',
     CONNECT_ERROR: 'connect_error',
@@ -21,8 +21,12 @@ export const SOCKET = {
 
 export const listenEvents = socket => {
 
-    socket.on(SOCKET.CONNECT, () => {
-        logger.info(`socket ${ socket.id } connect`)
+    Object.values(SocketEvents).forEach(value => {
+
+        socket.on(value, () => {
+            logger.info(`socket ${ socket.id } ${ value }`)
+        })
+
     })
 
 }
