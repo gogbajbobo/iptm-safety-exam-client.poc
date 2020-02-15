@@ -30,3 +30,7 @@ export const listenEvents = socket => {
     })
 
 }
+
+export const unlistenEvents = socket => {
+    socket.off()
+}
