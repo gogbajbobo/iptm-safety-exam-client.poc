@@ -1,14 +1,13 @@
 <script>
 
     import socket from '@/socket'
-    import { SOCKET } from '@/socket/events'
 
     export default {
 
         name: 'Main',
 
         methods: {
-            testButtonClicked() { socket.emit(SOCKET.MESSAGE, 'test button clicked')}
+            testButtonClicked() { socket.sendMessageToServer('test button clicked') }
         }
 
     }
