@@ -7,7 +7,7 @@ import store from '@/store'
 import { getters } from '@/store/constants'
 
 
-helper.isProduction || (localStorage.debug = 'socket.io*')
+helper.isProduction || (localStorage.debug = 'socket.io-client*')
 
 const socketMock = {
     emit: () => logger.warn('socket not created'),
