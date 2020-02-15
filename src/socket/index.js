@@ -37,13 +37,15 @@ const closeSocket = () => {
 
 }
 
-EventBus.$on(events.LOGIN, connectSocket)
-EventBus.$on(events.LOGOUT, closeSocket)
 const sendMessageToServer = data => socket.emit(SocketEvents.MESSAGE, data)
 
 const isAuthorized = () => store.getters[getters.isAuthorized]
+const checkSocket = () => (isAuthorized() && connectSocket()) || closeSocket()
 
 
-export const checkSocket = () => (isAuthorized() && connectSocket()) || closeSocket()
+EventBus.$on(events.LOGIN, connectSocket)
+EventBus.$on(events.LOGOUT, closeSocket)
+EventBus.$on(events.SND_MSG_2_SRV, sendMessageToServer)
 
-export default socket
+
+export default { checkSocket, sendMessageToServer }
