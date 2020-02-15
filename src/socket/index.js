@@ -16,7 +16,7 @@ const socketMock = {
     connected: false,
 }
 
-socket = socketMock
+socket = { ...socketMock }
 
 const openSocket = () => {
 
@@ -34,7 +34,6 @@ const connectSocket = () => socket.connected || openSocket().connect()
 
 const closeSocket = () => {
 
-    socket = socketMock
     if (socket.connected) {
 
         socket.close()
@@ -42,6 +41,7 @@ const closeSocket = () => {
 
     }
 
+    socket = { ...socketMock }
 
 }
 
