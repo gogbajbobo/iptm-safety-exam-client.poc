@@ -20,7 +20,7 @@ socket = { ...socketMock }
 
 const openSocket = () => {
 
-    if (socket.connected)
+    if (socket.io)
         return socket
 
     socket = io('http://localhost:8081', { autoConnect: false })
