@@ -53,7 +53,7 @@ const store = new Vuex.Store({
 
 store.watch(
     state => state.user,
-    user => EventBus.$emit(user ? events.LOGIN : events.LOGOUT)
+    user => EventBus.$emit(user ? events.LOGIN : events.LOGOUT),
 )
 
 
