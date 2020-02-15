@@ -1,6 +1,7 @@
 <script>
 
-    import io from '@/socket/io'
+    import store from '@/store'
+    import { actions } from '@/store/constants'
 
     export default {
 
@@ -9,18 +10,14 @@
         data() {
             return {
                 loginData: {
-                    username: undefined,
-                    password: undefined
+                    username: '',
+                    password: ''
                 }
             }
         },
 
         methods: {
-
-            login() {
-                io.login(this.loginData)
-            }
-
+            login() { store.dispatch(actions.login, this.loginData) }
         }
 
     }

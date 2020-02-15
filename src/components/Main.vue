@@ -1,8 +1,14 @@
 <script>
 
+    import socket from '@/socket'
+
     export default {
 
-        name: 'Main'
+        name: 'Main',
+
+        methods: {
+            testButtonClicked() { socket.sendMessageToServer('test button clicked') }
+        }
 
     }
 
@@ -11,7 +17,7 @@
 <template>
 
     <div>
-        Main
+        <button @click="testButtonClicked">Test</button>
     </div>
 
 </template>

@@ -2,7 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/components/Login'
 import Main from '@/components/Main'
-
+import EventBus, { events } from '@/services/event.bus'
+import store from '@/store'
+import { getters } from '@/store/constants'
 
 Vue.use(Router)
 
@@ -15,18 +17,23 @@ const login = {
     }
 }
 
+const _ = {
+    path: '/',
+    redirect: { name: Main.name }
+}
+
 const main = {
     path: '/main',
     name: Main.name,
     component: Main,
     meta: {
-        anonymousAccess: true
+        anonymousAccess: false
     }
 }
 
 const routes = [
     login,
-    main,
+    _, main,
 ]
 
 const router = new Router({
@@ -39,7 +46,7 @@ const anonymousAccessRoutes = routes
 
 router.beforeEach((to, from, next) => {
 
-    const isAuthorized = false
+    const isAuthorized = store.getters[getters.isAuthorized]
 
     if (!isAuthorized) {
 
@@ -54,5 +61,12 @@ router.beforeEach((to, from, next) => {
     return next()
 
 })
+
+const loginHandler = () => router.push({ name: Main.name })
+const logoutHandler = () => router.push({ name: Login.name })
+
+EventBus.$on(events.LOGIN, loginHandler)
+EventBus.$on(events.LOGOUT, logoutHandler)
+
 
 export default router

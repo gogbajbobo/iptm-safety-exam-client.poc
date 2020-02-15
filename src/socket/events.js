@@ -1,4 +1,6 @@
-export const SOCKET = {
+import logger from '@/services/logger'
+
+export const SocketEvents = {
 
     CONNECT: 'connect',
     CONNECT_ERROR: 'connect_error',
@@ -14,6 +16,21 @@ export const SOCKET = {
     PONG: 'pong',
 
     MESSAGE: 'message',
-    LOGIN: 'login',
 
+}
+
+export const listenEvents = socket => {
+
+    Object.values(SocketEvents).forEach(value => {
+
+        socket.on(value, () => {
+            logger.info(`socket ${ socket.id } ${ value }`)
+        })
+
+    })
+
+}
+
+export const unlistenEvents = socket => {
+    socket.off()
 }
