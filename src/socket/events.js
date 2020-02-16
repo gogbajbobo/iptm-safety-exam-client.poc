@@ -16,6 +16,7 @@ export const SocketEvents = {
     PONG: 'pong',
 
     MESSAGE: 'message',
+    USER_CONNECTED: 'user connected'
 
 }
 
@@ -23,7 +24,9 @@ export const listenEvents = socket => {
 
     Object.values(SocketEvents).forEach(value => {
 
+        logger.info(value)
         socket.on(value, () => {
+            logger.warn(value)
             logger.info(`socket ${ socket.id } ${ value }`)
         })
 
