@@ -7,7 +7,8 @@ const axiosInstance = axios.create()
 
 const
     authPath = `/auth`,
-    loginUrl = `${ authPath }/login`
+    loginUrl = `${ authPath }/login`,
+    logoutUrl = `${ authPath }/logout`
 
 axiosInstance.defaults.baseURL =
     helper.isProduction
@@ -30,10 +31,11 @@ axiosInstance.interceptors.response.use(response => {
 
 })
 
-
 export const login = ({ username, password }) => {
 
     const data = { username, password }
     return axiosInstance.post(loginUrl, data, { withCredentials: true })
 
 }
+
+export const logout = () => axiosInstance.post(logoutUrl, null, { withCredentials: true })

@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import PersistedState from 'vuex-persistedstate'
 import createMutationsSharer from 'vuex-shared-mutations'
 import { mutations, actions, getters } from '@/store/constants'
-import { login } from '@/services/requests'
+import { login, logout } from '@/services/requests'
 import EventBus, { events } from '@/services/event.bus'
 
 
@@ -34,7 +34,12 @@ const store = new Vuex.Store({
 
         },
 
-        [actions.logout]: ({ commit }) => commit(mutations.setUser, initialState.user),
+        [actions.logout]: ({ commit }) => {
+
+            commit(mutations.setUser, initialState.user)
+            return logout().catch(() => {})
+
+        },
 
     },
 
