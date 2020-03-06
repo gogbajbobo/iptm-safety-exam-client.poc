@@ -1,4 +1,6 @@
 import logger from '@/services/logger'
+import store from '@/store'
+import { actions } from '@/store/constants'
 
 export const SocketEvents = {
 
@@ -20,14 +22,37 @@ export const SocketEvents = {
 
 }
 
+const errorHandler = data => {
+
+    logger.error(data)
+    const { code } = data
+
+    if (code === 401) {
+
+        store.dispatch(actions.logout)
+            .catch(logger.error)
+
+    }
+
+}
+
 export const listenEvents = socket => {
 
     Object.values(SocketEvents).forEach(value => {
 
-        logger.info(value)
-        socket.on(value, () => {
-            logger.warn(value)
-            logger.info(`socket ${ socket.id } ${ value }`)
+        socket.on(value, data => {
+
+            const message = `socket ${ socket.id } ${ value }`
+
+            if (value === SocketEvents.ERROR) {
+
+                logger.error(message)
+                return errorHandler(data)
+
+            }
+
+            return logger.info(message)
+
         })
 
     })
