@@ -1,8 +1,12 @@
 <script>
 
+    import ExamCreate from '@/components/Exams/ExamCreate'
+
     export default {
 
-        name: 'ExamList'
+        name: 'ExamList',
+
+        components: { ExamCreate },
 
     }
 
@@ -11,7 +15,11 @@
 <template>
 
     <div>
+
         Exam List
+
+        <exam-create></exam-create>
+
     </div>
 
 </template>
