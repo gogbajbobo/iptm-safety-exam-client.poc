@@ -1,6 +1,7 @@
 <script>
 
     import router from '@/router'
+    import { paths } from '@/router/paths'
 
     export default {
 
@@ -8,7 +9,7 @@
 
         methods: {
 
-            examButtonPressed() { router.push({ path: '/exams' }) }
+            examButtonPressed() { router.push(paths.EXAM_LIST) }
 
         }
 
