@@ -35,6 +35,15 @@ const errorHandler = data => {
 
 }
 
+const messageEventHandler = data => {
+
+    const { title, payload } = data
+
+    logger.info('title:', title)
+    logger.info('payload:', payload)
+
+}
+
 export const listenEvents = socket => {
 
     Object.values(SocketEvents).forEach(value => {
@@ -47,6 +56,10 @@ export const listenEvents = socket => {
 
                 logger.error(message)
                 return errorHandler(data)
+
+            } else if (value === SocketEvents.MESSAGE) {
+
+                return messageEventHandler(data)
 
             }
 
