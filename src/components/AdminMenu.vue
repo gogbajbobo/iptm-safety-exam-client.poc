@@ -1,6 +1,6 @@
 <script>
 
-    import logger from '@/services/logger'
+    import router from '@/router'
 
     export default {
 
@@ -8,7 +8,7 @@
 
         methods: {
 
-            examButtonPressed() { logger.info('exam button pressed') }
+            examButtonPressed() { router.push({ path: '/exams' }) }
 
         }
 
