@@ -1,12 +1,15 @@
 <script>
 
-    import ExamCreate from '@/components/Exams/ExamCreate'
+    import router from '@/router'
+    import { paths } from '@/router/paths'
 
     export default {
 
         name: 'ExamList',
 
-        components: { ExamCreate },
+        methods: {
+            addExamButtonPressed() { router.push(paths.EXAM_CREATE) }
+        }
 
     }
 
@@ -18,7 +21,7 @@
 
         Exam List
 
-        <exam-create></exam-create>
+        <button @click="addExamButtonPressed">Добавить экзамен</button>
 
     </div>
 
