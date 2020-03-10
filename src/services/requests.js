@@ -35,6 +35,7 @@ export const login = ({ username, password }) => {
 
     const data = { username, password }
     return axiosInstance.post(loginUrl, data, { withCredentials: true })
+        .then(data => data.user)
 
 }
 
