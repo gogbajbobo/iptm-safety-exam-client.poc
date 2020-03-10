@@ -2,7 +2,9 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import PersistedState from 'vuex-persistedstate'
 import createMutationsSharer from 'vuex-shared-mutations'
+
 import { mutations, actions, getters } from '@/store/constants'
+
 import { login, logout } from '@/services/requests'
 import EventBus, { events } from '@/services/event.bus'
 

@@ -3,8 +3,10 @@ export const mutations = {
 }
 
 export const actions = {
+
     login: 'login',
     logout: 'logout',
+
 }
 
 export const getters = {
