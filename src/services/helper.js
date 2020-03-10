@@ -1,3 +1,5 @@
 const isProduction = process.env.NODE_ENV === 'production'
 
-export default { isProduction }
+const isAdmin = user => user.roles.includes('admin')
+
+export default { isProduction, isAdmin }
