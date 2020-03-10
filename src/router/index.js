@@ -31,9 +31,16 @@ const main = {
     }
 }
 
+const exams = {
+    path: '/exams',
+    name: ExamList.name,
+    component: ExamList,
+}
+
 const routes = [
     login,
     _, main,
+    exams,
 ]
 
 const router = new Router({
