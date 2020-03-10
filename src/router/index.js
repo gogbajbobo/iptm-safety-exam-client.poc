@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 import Login from '@/components/Login'
 import Main from '@/components/Main'
-import ExamList from '@/components/ExamList'
+import ExamList from '@/components/Exams/ExamList'
 
 import EventBus, { events } from '@/services/event.bus'
 
