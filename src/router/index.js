@@ -1,8 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
 import Login from '@/components/Login'
 import Main from '@/components/Main'
+import ExamList from '@/components/ExamList'
+
 import EventBus, { events } from '@/services/event.bus'
+
 import store from '@/store'
 import { getters } from '@/store/constants'
 
