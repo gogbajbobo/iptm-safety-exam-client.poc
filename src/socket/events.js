@@ -18,7 +18,6 @@ export const SocketEvents = {
     PONG: 'pong',
 
     MESSAGE: 'message',
-    USER_CONNECTED: 'user connected'
 
 }
 
