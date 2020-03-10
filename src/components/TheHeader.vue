@@ -3,17 +3,28 @@
     import store from '@/store'
     import { actions, getters } from '@/store/constants'
 
+    import router from '@/router'
+    import { paths } from '@/router/paths'
+
     export default {
 
         name: 'TheHeader',
 
         computed: {
-            isAuthorized() { return store.getters[getters.isAuthorized] }
+
+            isAuthorized() { return store.getters[getters.isAuthorized] },
+
+            isMainPage() { return this.$route.path === paths.MAIN },
+
         },
 
         methods: {
-            logout() { store.dispatch(actions.logout) }
-        }
+
+            logout() { store.dispatch(actions.logout) },
+
+            backToMainPage() { router.push(paths.MAIN) },
+
+        },
 
     }
 
@@ -26,7 +37,12 @@
         <img alt="Vue logo" src="../assets/iptm_logo.png">
         <h1>Экзамены по охране труда и технике безопасности</h1>
 
-        <button v-if="isAuthorized" @click="logout">Logout</button>
+        <template v-if="isAuthorized">
+
+            <button v-if="!isMainPage" @click="backToMainPage">На главную</button>
+            <button @click="logout">Выход</button>
+
+        </template>
 
     </div>
 
