@@ -43,6 +43,10 @@ const store = new Vuex.Store({
 
         },
 
+        [actions.createExam]: () => {
+            EventBus.$emit(events.SND_MSG_2_SRV, { title: 'createExam' })
+        }
+
     },
 
     getters: {

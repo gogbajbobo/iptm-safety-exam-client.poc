@@ -7,6 +7,8 @@ export const actions = {
     login: 'login',
     logout: 'logout',
 
+    createExam: 'create exam',
+
 }
 
 export const getters = {
