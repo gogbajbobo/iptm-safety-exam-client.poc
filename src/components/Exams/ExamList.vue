@@ -8,7 +8,7 @@
         name: 'ExamList',
 
         methods: {
-            addExamButtonPressed() { router.push(paths.EXAM_CREATE) }
+            addExamButtonPressed() { router.push(paths.EXAM_FORM) }
         }
 
     }

@@ -4,6 +4,6 @@ export const paths = {
     ROOT: '/',
     MAIN: '/main',
     EXAM_LIST: '/exams',
-    EXAM_CREATE: '/exam-create',
+    EXAM_FORM: '/exam-form',
 
 }

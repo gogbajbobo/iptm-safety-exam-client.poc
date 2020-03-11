@@ -46,8 +46,8 @@ const exams = {
     component: ExamList,
 }
 
-const examCreate = {
-    path: paths.EXAM_CREATE,
+const examForm = {
+    path: paths.EXAM_FORM,
     name: ExamForm.name,
     component: ExamForm
 }
@@ -56,7 +56,7 @@ const routes = [
     login,
     _, main,
     exams,
-    examCreate,
+    examForm,
 ]
 
 const router = new Router({
