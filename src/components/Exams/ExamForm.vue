@@ -47,7 +47,7 @@
                 <legend>{{ legendTitle }}</legend>
 
                 <label for="title">Название: </label>
-                <input type="text" name="title" id="title"/>
+                <input type="text" name="title" id="title" required />
 
             </fieldset>
 
