@@ -49,7 +49,8 @@ const exams = {
 const examForm = {
     path: paths.EXAM_FORM,
     name: ExamForm.name,
-    component: ExamForm
+    component: ExamForm,
+    props: true,
 }
 
 const routes = [
