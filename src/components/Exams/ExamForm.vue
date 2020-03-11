@@ -14,6 +14,13 @@
             id: { type: String, default: null },
         },
 
+        computed: {
+
+            legendTitle() { return this.id ? 'Экзамен:' : 'Новый экзамен:' },
+            submitButtonTitle() { return this.id ? 'Изменить экзамен' : 'Создать экзамен' },
+
+        },
+
         methods: {
             submitExamButtonPressed() {
                 store.dispatch(actions.createExam)
@@ -33,7 +40,7 @@
 
             <fieldset>
 
-                <legend>Новый экзамен:</legend>
+                <legend>{{ legendTitle }}</legend>
 
                 <label for="title">Название: </label>
                 <input type="text" name="title" id="title"/>
@@ -42,7 +49,7 @@
 
         </form>
 
-        <button @click="submitExamButtonPressed">Создать экзамен</button>
+        <button @click="submitExamButtonPressed">{{ submitButtonTitle }}</button>
 
     </div>
 
