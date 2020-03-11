@@ -4,7 +4,7 @@ import helper from '@/services/helper'
 const { isProduction } = helper
 
 /* eslint-disable no-console */
-export default {
+export const logger = {
 
     log: (...args) => isProduction || console.log(...args),
     info: (...args) => isProduction || console.info(...args),

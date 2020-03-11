@@ -1,4 +1,4 @@
-import logger from '@/services/logger'
+import { logger } from '@/services/logger'
 import store from '@/store'
 import { actions } from '@/store/constants'
 

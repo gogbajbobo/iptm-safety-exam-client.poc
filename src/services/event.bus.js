@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import logger from '@/services/logger'
+import { logger } from '@/services/logger'
 import helper from '@/services/helper'
 
 

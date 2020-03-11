@@ -1,6 +1,6 @@
 import io from 'socket.io-client'
 
-import logger from '@/services/logger'
+import { logger } from '@/services/logger'
 import EventBus, { events } from '@/services/event.bus'
 import helper from '@/services/helper'
 
