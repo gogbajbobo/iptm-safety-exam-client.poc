@@ -36,9 +36,12 @@
 
             submitExamButtonPressed() {
 
-                store.dispatch(actions.createExam, this.examForm)
+                const loader = this.$loading.show()
+
+                return store.dispatch(actions.createExam, this.examForm)
                     .then(() => router.push(paths.EXAM_LIST))
                     .catch(messages.error)
+                    .then(loader.hide)
 
             },
 
