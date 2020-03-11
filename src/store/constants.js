@@ -1,5 +1,8 @@
 export const mutations = {
+
     setUser: 'set user',
+    setExams: 'set exams',
+
 }
 
 export const actions = {

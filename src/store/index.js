@@ -14,7 +14,10 @@ import { sendMessageToServer } from '@/socket'
 Vue.use(Vuex)
 
 const initialState = {
-    user: null
+
+    user: null,
+    exams: [],
+
 }
 
 const store = new Vuex.Store({
@@ -25,7 +28,11 @@ const store = new Vuex.Store({
     state: initialState,
 
     mutations: {
+
         [mutations.setUser]: (state, user) => { state.user = user },
+
+        [mutations.setExams]: (state, exams) => { state.exams = exams },
+
     },
 
     actions: {
