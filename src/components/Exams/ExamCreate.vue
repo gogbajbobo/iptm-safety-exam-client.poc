@@ -24,7 +24,22 @@
 <template>
 
     <div>
+
+        <form name="createExamForm">
+
+            <fieldset>
+
+                <legend>Новый экзамен:</legend>
+
+                <label for="title">Название: </label>
+                <input type="text" name="title" id="title"/>
+
+            </fieldset>
+
+        </form>
+
         <button @click="createExamButtonPressed">Создать экзамен</button>
+
     </div>
 
 </template>
