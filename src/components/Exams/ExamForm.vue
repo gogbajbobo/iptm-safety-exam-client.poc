@@ -14,6 +14,14 @@
             id: { type: String, default: null },
         },
 
+        data() {
+            return {
+                examForm: {
+                    title: null
+                }
+            }
+        },
+
         computed: {
 
             legendTitle() { return this.id ? 'Экзамен:' : 'Новый экзамен:' },
@@ -25,7 +33,7 @@
 
             submitExamButtonPressed() {
 
-                store.dispatch(actions.createExam)
+                store.dispatch(actions.createExam, this.examForm)
                     .then(data => logger.info(data))
 
             },
@@ -47,7 +55,7 @@
                 <legend>{{ legendTitle }}</legend>
 
                 <label for="title">Название: </label>
-                <input type="text" name="title" id="title" required />
+                <input type="text" name="title" id="title" required v-model="examForm.title" />
 
             </fieldset>
 
