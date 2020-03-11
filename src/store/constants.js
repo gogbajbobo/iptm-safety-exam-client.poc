@@ -19,5 +19,6 @@ export const getters = {
 
     isAuthorized: 'isAuthorized',
     user: 'user',
+    exams: 'exams',
 
 }

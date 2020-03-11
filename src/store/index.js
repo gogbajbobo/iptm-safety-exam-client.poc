@@ -69,6 +69,8 @@ const store = new Vuex.Store({
 
         [getters.user]: state => state.user,
 
+        [getters.exams]: state => state.exams,
+
     },
 
     plugins: [
