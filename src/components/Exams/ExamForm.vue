@@ -3,7 +3,9 @@
     import store from '@/store'
     import { actions } from '@/store/constants'
 
-    import { logger } from '@/services/logger'
+    import router from '@/router'
+    import { paths } from '@/router/paths'
+
     import { messages } from '@/services/messages'
 
 
@@ -35,7 +37,7 @@
             submitExamButtonPressed() {
 
                 store.dispatch(actions.createExam, this.examForm)
-                    .then(data => logger.info(data))
+                    .then(() => router.push(paths.EXAM_LIST))
                     .catch(messages.error)
 
             },
