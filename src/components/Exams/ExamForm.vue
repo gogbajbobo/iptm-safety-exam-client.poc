@@ -25,7 +25,7 @@
 
     <div>
 
-        <form name="createExamForm">
+        <form name="examForm">
 
             <fieldset>
 
