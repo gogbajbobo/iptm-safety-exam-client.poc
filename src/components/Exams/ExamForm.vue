@@ -4,6 +4,7 @@
     import { actions } from '@/store/constants'
 
     import { logger } from '@/services/logger'
+    import { messages } from '@/services/messages'
 
 
     export default {
@@ -35,6 +36,7 @@
 
                 store.dispatch(actions.createExam, this.examForm)
                     .then(data => logger.info(data))
+                    .catch(messages.error)
 
             },
 
