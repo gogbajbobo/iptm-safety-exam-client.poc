@@ -45,7 +45,7 @@ const store = new Vuex.Store({
 
         },
 
-        [actions.createExam]: (context, payload) => sendMessageToServer({ action: 'createExam', payload })
+        [actions.createExam]: (context, payload) => sendMessageToServer({ action: actions.createExam, payload })
 
     },
 
