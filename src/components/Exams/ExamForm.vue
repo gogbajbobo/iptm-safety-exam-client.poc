@@ -22,10 +22,14 @@
         },
 
         methods: {
+
             submitExamButtonPressed() {
+
                 store.dispatch(actions.createExam)
                     .then(data => logger.info(data))
+
             },
+
         }
 
     }
