@@ -37,9 +37,9 @@ const errorHandler = data => {
 
 const messageEventHandler = data => {
 
-    const { title, payload } = data
+    const { action, payload } = data
 
-    logger.info('title:', title)
+    logger.info('action:', action)
     logger.info('payload:', payload)
 
 }
