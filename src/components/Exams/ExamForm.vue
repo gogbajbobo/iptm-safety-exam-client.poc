@@ -11,7 +11,7 @@
         name: 'ExamForm',
 
         methods: {
-            createExamButtonPressed() {
+            submitExamButtonPressed() {
                 store.dispatch(actions.createExam)
                     .then(data => logger.info(data))
             },
@@ -38,7 +38,7 @@
 
         </form>
 
-        <button @click="createExamButtonPressed">Создать экзамен</button>
+        <button @click="submitExamButtonPressed">Создать экзамен</button>
 
     </div>
 
