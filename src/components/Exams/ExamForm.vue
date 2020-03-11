@@ -8,7 +8,7 @@
 
     export default {
 
-        name: 'ExamCreate',
+        name: 'ExamForm',
 
         methods: {
             createExamButtonPressed() {

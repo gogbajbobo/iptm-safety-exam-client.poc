@@ -4,7 +4,7 @@ import Router from 'vue-router'
 import Login from '@/components/Login'
 import Main from '@/components/Main'
 import ExamList from '@/components/Exams/ExamList'
-import ExamCreate from '@/components/Exams/ExamCreate'
+import ExamForm from '@/components/Exams/ExamForm'
 
 import EventBus, { events } from '@/services/event.bus'
 
@@ -48,8 +48,8 @@ const exams = {
 
 const examCreate = {
     path: paths.EXAM_CREATE,
-    name: ExamCreate.name,
-    component: ExamCreate
+    name: ExamForm.name,
+    component: ExamForm
 }
 
 const routes = [
