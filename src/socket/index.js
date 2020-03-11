@@ -47,7 +47,16 @@ const closeSocket = () => {
 
 export const checkSocket = isAuthorized => isAuthorized ? connectSocket() : closeSocket()
 
-export const sendMessageToServer = data => socket.emit(SocketEvents.MESSAGE, data)
+export const sendMessageToServer = data => new Promise((resolve, reject) => {
+
+    socket.emit(SocketEvents.MESSAGE, data, response => {
+
+        const { error, payload } = response
+        error ? reject(error) : resolve(payload)
+
+    })
+
+})
 
 
 EventBus.$on(events.LOGIN, connectSocket)
