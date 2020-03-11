@@ -3,12 +3,18 @@
     import store from '@/store'
     import { actions } from '@/store/constants'
 
+    import { logger } from '@/services/logger'
+
+
     export default {
 
         name: 'ExamCreate',
 
         methods: {
-            createExamButtonPressed() { store.dispatch(actions.createExam) },
+            createExamButtonPressed() {
+                store.dispatch(actions.createExam)
+                    .then(data => logger.info(data))
+            },
         }
 
     }
