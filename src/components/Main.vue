@@ -1,6 +1,6 @@
 <script>
 
-    import socket from '@/socket'
+    import { sendMessageToServer } from '@/socket'
 
     import helper from '@/services/helper'
 
@@ -23,7 +23,7 @@
         },
 
         methods: {
-            testButtonClicked() { socket.sendMessageToServer('test button clicked') }
+            testButtonClicked() { sendMessageToServer('test button clicked') }
         }
 
     }

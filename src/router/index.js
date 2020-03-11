@@ -11,6 +11,8 @@ import EventBus, { events } from '@/services/event.bus'
 import store from '@/store'
 import { getters } from '@/store/constants'
 
+import { checkSocket } from '@/socket'
+
 import { paths } from '@/router/paths'
 
 Vue.use(Router)
@@ -68,6 +70,8 @@ const anonymousAccessRoutes = routes
 router.beforeEach((to, from, next) => {
 
     const isAuthorized = store.getters[getters.isAuthorized]
+
+    checkSocket(isAuthorized)
 
     if (!isAuthorized) {
 

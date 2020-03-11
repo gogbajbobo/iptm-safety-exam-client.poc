@@ -8,6 +8,8 @@ import { mutations, actions, getters } from '@/store/constants'
 import { login, logout } from '@/services/requests'
 import EventBus, { events } from '@/services/event.bus'
 
+import { sendMessageToServer } from '@/socket'
+
 
 Vue.use(Vuex)
 
@@ -44,7 +46,7 @@ const store = new Vuex.Store({
         },
 
         [actions.createExam]: () => {
-            EventBus.$emit(events.SND_MSG_2_SRV, { title: 'createExam' })
+            sendMessageToServer({ title: 'createExam' })
         }
 
     },

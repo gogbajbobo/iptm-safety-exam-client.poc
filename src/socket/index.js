@@ -6,9 +6,6 @@ import helper from '@/services/helper'
 
 import { SocketEvents, listenEvents, unlistenEvents } from '@/socket/events'
 
-import store from '@/store'
-import { getters } from '@/store/constants'
-
 
 helper.isProduction || (localStorage.debug = 'socket.io-client*')
 
@@ -48,16 +45,11 @@ const closeSocket = () => {
 
 }
 
-const sendMessageToServer = data => socket.emit(SocketEvents.MESSAGE, data)
+export const checkSocket = isAuthorized => isAuthorized ? connectSocket() : closeSocket()
 
-const isAuthorized = () => store.getters[getters.isAuthorized]
-const checkSocket = () => (isAuthorized() && connectSocket()) || closeSocket()
+export const sendMessageToServer = data => socket.emit(SocketEvents.MESSAGE, data)
 
-checkSocket()
 
 EventBus.$on(events.LOGIN, connectSocket)
 EventBus.$on(events.LOGOUT, closeSocket)
 EventBus.$on(events.SND_MSG_2_SRV, sendMessageToServer)
-
-
-export default { checkSocket, sendMessageToServer }
