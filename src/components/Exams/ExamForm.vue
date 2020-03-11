@@ -10,6 +10,10 @@
 
         name: 'ExamForm',
 
+        props: {
+            id: { type: String, default: null },
+        },
+
         methods: {
             submitExamButtonPressed() {
                 store.dispatch(actions.createExam)
