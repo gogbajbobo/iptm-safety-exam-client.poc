@@ -2,6 +2,7 @@ export const mutations = {
 
     setUser: 'set user',
     setExams: 'set exams',
+    deleteExam: 'delete exam',
 
 }
 

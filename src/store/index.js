@@ -33,6 +33,8 @@ const store = new Vuex.Store({
 
         [mutations.setExams]: (state, exams) => { state.exams = exams },
 
+        [mutations.deleteExam]: (state, id) => { state.exams = state.exams.filter(exam => exam.id !== id) },
+
     },
 
     actions: {
@@ -61,7 +63,12 @@ const store = new Vuex.Store({
 
         },
 
-        [actions.deleteExam]: (context, payload) => send({ actions: actions.deleteExam, payload })
+        [actions.deleteExam]: ({ commit }, payload) => {
+
+            return send({ action: actions.deleteExam, payload })
+                .then(() => commit(mutations.deleteExam, payload))
+
+        }
 
     },
 
