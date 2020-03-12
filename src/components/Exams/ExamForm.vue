@@ -6,7 +6,7 @@
     import router from '@/router'
     import { paths } from '@/router/paths'
 
-    import { messages } from '@/services/messages'
+    import { helper } from '@/services/helper'
 
 
     export default {
@@ -38,16 +38,16 @@
 
         methods: {
 
-            submitExamButtonPressed() {
+            submitAction() {
 
-                const loader = this.$loading.show()
+                const examAction = this.exam ? actions.updateExam : actions.createExam
 
-                return store.dispatch(actions.createExam, this.examForm)
+                return store.dispatch(examAction, this.examForm)
                     .then(() => router.push(paths.EXAM_LIST))
-                    .catch(messages.error)
-                    .then(loader.hide)
 
             },
+
+            submitExamButtonPressed() { return helper.loaderWithAction(this, this.submitAction()) },
 
         }
 
