@@ -35,7 +35,7 @@
             deleteExamButtonPressed(exam) {
 
                 if (messages.confirm(`Удалить экзамен ${ exam.title }?`)) {
-                    return true
+                    return helper.loaderWithAction(this, store.dispatch(actions.deleteExam, exam.id))
                 }
 
             },
