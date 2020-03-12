@@ -8,9 +8,13 @@
 
     import { messages } from '@/services/messages'
 
+    import ExamItem from '@/components/Exams/ExamItem'
+
     export default {
 
         name: 'ExamList',
+
+        components: { ExamItem },
 
         computed: {
             exams() { return store.getters[getters.exams] }
@@ -42,11 +46,7 @@
 
         <template v-for="exam in exams">
 
-            <article :key="exam.id">
-
-                <h3>{{ exam.id }}. {{ exam.title }}</h3>
-
-            </article>
+            <exam-item :exam="exam" :key="exam.id"></exam-item>
 
         </template>
 

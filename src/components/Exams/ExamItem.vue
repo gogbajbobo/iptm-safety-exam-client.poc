@@ -2,7 +2,11 @@
 
     export default {
 
-        name: 'ExamItem'
+        name: 'ExamItem',
+
+        props: {
+            exam: { type: Object }
+        }
 
     }
 
@@ -11,6 +15,12 @@
 <template>
 
     <div>
+
+        <article v-if="exam">
+
+            <h3>{{ exam.id }}. {{ exam.title }}</h3>
+
+        </article>
 
     </div>
 
