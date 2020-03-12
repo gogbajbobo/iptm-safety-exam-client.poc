@@ -8,7 +8,7 @@ import { mutations, actions, getters } from '@/store/constants'
 import { login, logout } from '@/services/requests'
 import EventBus, { events } from '@/services/event.bus'
 
-import { sendMessageToServer } from '@/socket'
+import { sendMessageToServer as send } from '@/socket'
 
 
 Vue.use(Vuex)
@@ -52,11 +52,11 @@ const store = new Vuex.Store({
 
         },
 
-        [actions.createExam]: (context, payload) => sendMessageToServer({ action: actions.createExam, payload }),
+        [actions.createExam]: (context, payload) => send({ action: actions.createExam, payload }),
 
         [actions.getExams]: ({ commit }) => {
 
-            return sendMessageToServer({ action: actions.getExams })
+            return send({ action: actions.getExams })
                 .then(payload => commit(mutations.setExams, payload))
 
         },
