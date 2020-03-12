@@ -10,7 +10,7 @@
 
         methods: {
 
-            editButtonPressed() {},
+            editButtonPressed() { this.$emit('edit-exam') },
 
             deleteButtonPressed() { this.$emit('delete-exam') },
 

@@ -9,6 +9,7 @@
     import { messages } from '@/services/messages'
 
     import ExamItem from '@/components/Exams/ExamItem'
+    import ExamForm from '@/components/Exams/ExamForm'
 
     export default {
 
@@ -33,6 +34,8 @@
         methods: {
 
             addExamButtonPressed() { router.push(paths.EXAM_FORM) },
+
+            editExamButtonPressed(exam) { router.push({ name: ExamForm.name, params: { exam }}) },
 
             deleteExamButtonPressed(exam) {
 
@@ -60,6 +63,7 @@
 
             <exam-item :exam="exam"
                        :key="exam.id"
+                       @edit-exam="editExamButtonPressed(exam)"
                        @delete-exam="deleteExamButtonPressed(exam)"/>
 
         </template>
