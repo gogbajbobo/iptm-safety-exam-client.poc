@@ -7,6 +7,7 @@
     import { actions, getters } from '@/store/constants'
 
     import { messages } from '@/services/messages'
+    import { helper } from '@/services/helper'
 
     import ExamItem from '@/components/Exams/ExamItem'
     import ExamForm from '@/components/Exams/ExamForm'
@@ -22,13 +23,7 @@
         },
 
         mounted() {
-
-            const loader = this.$loading.show()
-
-            return store.dispatch(actions.getExams)
-                .catch(messages.error)
-                .then(loader.hide)
-
+            return helper.loaderWithAction(this, store.dispatch(actions.getExams))
         },
 
         methods: {
