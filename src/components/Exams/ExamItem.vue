@@ -6,7 +6,15 @@
 
         props: {
             exam: { type: Object }
-        }
+        },
+
+        methods: {
+
+            editButtonPressed() {},
+
+            deleteButtonPressed() { this.$emit('delete-exam') },
+
+        },
 
     }
 
@@ -19,6 +27,9 @@
         <article v-if="exam" class="exam-item-article">
 
             <h3>{{ exam.id }}. {{ exam.title }}</h3>
+
+            <button @click="editButtonPressed">Редактировать</button>
+            <button @click="deleteButtonPressed">Удалить</button>
 
         </article>
 
