@@ -13,6 +13,7 @@ export const actions = {
 
     createExam: 'create exam',
     getExams: 'get exams',
+    updateExam: 'update exam',
     deleteExam: 'delete exam',
 
 }

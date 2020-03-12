@@ -63,6 +63,8 @@ const store = new Vuex.Store({
 
         },
 
+        [actions.updateExam]: (context, payload) => send({ action: actions.updateExam, payload }),
+
         [actions.deleteExam]: ({ commit }, payload) => {
 
             return send({ action: actions.deleteExam, payload })
