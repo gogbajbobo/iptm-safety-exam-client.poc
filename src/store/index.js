@@ -61,6 +61,8 @@ const store = new Vuex.Store({
 
         },
 
+        [actions.deleteExam]: (context, payload) => send({ actions: actions.deleteExam, payload })
+
     },
 
     getters: {
