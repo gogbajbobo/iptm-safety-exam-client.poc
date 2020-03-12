@@ -44,6 +44,8 @@
 
         <h2>Список экзаменов:</h2>
 
+        <hr>
+
         <template v-for="exam in exams">
 
             <exam-item :exam="exam" :key="exam.id"></exam-item>
