@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { logger } from '@/services/logger'
-import helper from '@/services/helper'
+import { helper } from '@/services/helper'
 
 
 const axiosInstance = axios.create()

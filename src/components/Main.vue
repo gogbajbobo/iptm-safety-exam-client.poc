@@ -2,7 +2,7 @@
 
     import { sendMessageToServer } from '@/socket'
 
-    import helper from '@/services/helper'
+    import { helper } from '@/services/helper'
 
     import store from '@/store'
     import { getters } from '@/store/constants'

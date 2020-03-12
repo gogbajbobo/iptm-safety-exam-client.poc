@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import { logger } from '@/services/logger'
-import helper from '@/services/helper'
+import { helper } from '@/services/helper'
 
 
 const EventBus = new Vue()

@@ -1,4 +1,4 @@
-import helper from '@/services/helper'
+import { helper } from '@/services/helper'
 
 
 const { isProduction } = helper
