@@ -27,9 +27,13 @@
 
         computed: {
 
-            legendTitle() { return this.exam ? 'Экзамен:' : 'Новый экзамен:' },
+            legendTitle() { return this.exam ? `Экзамен ${ this.exam.title }:` : 'Новый экзамен:' },
             submitButtonTitle() { return this.exam ? 'Изменить экзамен' : 'Создать экзамен' },
 
+        },
+
+        mounted() {
+            this.examForm = { ...this.exam }
         },
 
         methods: {
