@@ -14,7 +14,7 @@
         name: 'ExamForm',
 
         props: {
-            id: { type: String, default: null },
+            exam: { type: Object },
         },
 
         data() {
@@ -27,8 +27,8 @@
 
         computed: {
 
-            legendTitle() { return this.id ? 'Экзамен:' : 'Новый экзамен:' },
-            submitButtonTitle() { return this.id ? 'Изменить экзамен' : 'Создать экзамен' },
+            legendTitle() { return this.exam ? 'Экзамен:' : 'Новый экзамен:' },
+            submitButtonTitle() { return this.exam ? 'Изменить экзамен' : 'Создать экзамен' },
 
         },
 
