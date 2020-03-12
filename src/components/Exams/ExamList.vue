@@ -31,7 +31,17 @@
         },
 
         methods: {
-            addExamButtonPressed() { router.push(paths.EXAM_FORM) }
+
+            addExamButtonPressed() { router.push(paths.EXAM_FORM) },
+
+            deleteExamButtonPressed(exam) {
+
+                if (messages.confirm(`Удалить экзамен ${ exam.title }?`)) {
+                    return true
+                }
+
+            },
+
         }
 
     }
@@ -48,7 +58,9 @@
 
         <template v-for="exam in exams">
 
-            <exam-item :exam="exam" :key="exam.id"></exam-item>
+            <exam-item :exam="exam"
+                       :key="exam.id"
+                       @delete-exam="deleteExamButtonPressed(exam)"/>
 
         </template>
 
