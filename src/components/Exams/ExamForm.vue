@@ -90,7 +90,7 @@
                 <hr>
 
                 <div v-if="exam">
-                    <question-form :exam-id="exam.id"></question-form>
+                    <question-form :exam-id="examId"></question-form>
                 </div>
 
             </fieldset>
