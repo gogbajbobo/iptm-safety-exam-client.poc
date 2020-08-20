@@ -33,6 +33,8 @@ const store = new Vuex.Store({
 
         [mutations.setExams]: (state, exams) => { state.exams = exams },
 
+        [mutations.addExam]: (state, exam) => { state.exams.push(exam) },
+
         [mutations.deleteExam]: (state, id) => { state.exams = state.exams.filter(exam => exam.id !== id) },
 
     },
