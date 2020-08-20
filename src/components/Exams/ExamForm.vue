@@ -8,10 +8,14 @@
 
     import { helper } from '@/services/helper'
 
+    import QuestionForm from './QuestionForm'
+
 
     export default {
 
         name: 'ExamForm',
+
+        components: { QuestionForm },
 
         props: {
             exam: { type: Object },
@@ -22,8 +26,6 @@
                 examForm: {
                     title: null,
                 },
-                newQuestion: null,
-                newAnswer: null,
             }
         },
 
@@ -50,8 +52,6 @@
             },
 
             submitExamButtonPressed() { return helper.loaderWithAction(this, this.submitAction()) },
-            addQuestionButtonPressed() {},
-            addAnswerButtonPressed() {},
 
         }
 
@@ -74,40 +74,7 @@
                 <hr>
 
                 <div v-if="exam">
-
-                    <div>
-
-                        <label for="question">Вопрос: </label>
-                        <input type="text" name="question" id="question" required v-model="newQuestion" />
-
-                        <div>
-                            Ответы:
-                            <div>
-                                <label for="a">А: </label>
-                                <input type="text" id="a" name="a" v-model="newAnswer">
-                            </div>
-
-                            <button @click="addAnswerButtonPressed">Добавить ответ</button>
-
-                            <div>
-
-                                <label for="right-answer">Верный ответ: </label>
-                                <select name="rightAnswer" id="right-answer">
-                                    <option value="1">А</option>
-                                    <option value="2">Б</option>
-                                    <option value="3">В</option>
-                                    <option value="4">Г</option>
-                                </select>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <hr>
-                    <button @click="addQuestionButtonPressed">Добавить вопрос</button>
-
+                    <question-form></question-form>
                 </div>
 
             </fieldset>
