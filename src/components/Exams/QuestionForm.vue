@@ -5,7 +5,7 @@ export default {
     name: 'QuestionForm',
 
     props: {
-        examId: { type: String },
+        examId: { type: [ String, Number ] },
     },
 
     data() {
