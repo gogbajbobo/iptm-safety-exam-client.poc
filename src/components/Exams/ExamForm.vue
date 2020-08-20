@@ -52,7 +52,8 @@
                 const examAction = this.exam ? actions.updateExam : actions.createExam
 
                 return store.dispatch(examAction, this.examForm)
-                    .then(() => router.push(paths.EXAM_LIST))
+                    .then(exam => router.push({ path: `${ paths.EXAM_FORM }/${ exam?.id }` }))
+                    .catch(err => alert(err))
 
             },
 
