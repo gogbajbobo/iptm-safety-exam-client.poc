@@ -1,5 +1,7 @@
 <script>
 
+    import _ from 'lodash'
+
     import store from '@/store'
     import { actions } from '@/store/constants'
 
@@ -7,6 +9,7 @@
     import { paths } from '@/router/paths'
 
     import { helper } from '@/services/helper'
+    // import { logger } from '@/services/logger'
 
     import QuestionForm from './QuestionForm'
 
@@ -26,6 +29,7 @@
                 examForm: {
                     title: null,
                 },
+                formIsPristine: true,
             }
         },
 
@@ -49,6 +53,17 @@
             },
 
             submitExamButtonPressed() { return helper.loaderWithAction(this, this.submitAction()) },
+
+        },
+
+        watch: {
+
+            examForm: {
+                handler: function () {
+                    this.formIsPristine = _.isEqual(this.examForm, this.exam)
+                },
+                deep: true,
+            }
 
         }
 
@@ -78,7 +93,7 @@
 
         </form>
 
-        <button @click="submitExamButtonPressed">Сохранить экзамен</button>
+        <button @click="submitExamButtonPressed" :disabled="formIsPristine">Сохранить экзамен</button>
 
     </div>
 
