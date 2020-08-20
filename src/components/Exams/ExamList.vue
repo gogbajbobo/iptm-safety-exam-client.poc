@@ -10,7 +10,7 @@
     import { helper } from '@/services/helper'
 
     import ExamItem from '@/components/Exams/ExamItem'
-    import ExamForm from '@/components/Exams/ExamForm'
+    // import ExamForm from '@/components/Exams/ExamForm'
 
     export default {
 
@@ -30,7 +30,7 @@
 
             addExamButtonPressed() { router.push(paths.EXAM_FORM) },
 
-            editExamButtonPressed(exam) { router.push({ name: ExamForm.name, params: { exam }}) },
+            editExamButtonPressed(exam) { router.push({ path: `${ paths.EXAM_FORM }/${ exam?.id }` }) },
 
             deleteExamButtonPressed(exam) {
 

@@ -47,7 +47,7 @@ const exams = {
 }
 
 const examForm = {
-    path: paths.EXAM_FORM,
+    path: `${ paths.EXAM_FORM }/:examId`,
     name: ExamForm.name,
     component: ExamForm,
     props: true,

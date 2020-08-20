@@ -3,7 +3,7 @@
     import _ from 'lodash'
 
     import store from '@/store'
-    import { actions } from '@/store/constants'
+    import { actions, getters } from '@/store/constants'
 
     import router from '@/router'
     import { paths } from '@/router/paths'
@@ -21,7 +21,7 @@
         components: { QuestionForm },
 
         props: {
-            exam: { type: Object },
+            examId: { type: String },
         },
 
         data() {
@@ -34,7 +34,11 @@
         },
 
         computed: {
+
+            exams() { return store.getters[getters.exams] },
+            exam() { return this.exams.find(exam => exam.id === Number(this.examId)) },
             legendTitle() { return this.exam ? `Экзамен ${ this.exam.title }:` : 'Новый экзамен:' },
+
         },
 
         mounted() {
