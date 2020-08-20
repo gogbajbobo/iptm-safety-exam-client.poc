@@ -56,7 +56,13 @@ const store = new Vuex.Store({
 
         },
 
-        [actions.createExam]: (context, payload) => send({ action: actions.createExam, payload }),
+        [actions.createExam]: ({ commit }, payload) => {
+            return send({ action: actions.createExam, payload })
+                .then(exam => {
+                    commit(mutations.addExam, exam)
+                    return exam
+                })
+        },
 
         [actions.getExams]: ({ commit }) => {
 
