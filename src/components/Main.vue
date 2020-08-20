@@ -8,6 +8,7 @@
     import { getters } from '@/store/constants'
 
     import AdminMenu from '@/components/AdminMenu'
+    import {logger} from '@/services/logger';
 
     export default {
 
@@ -23,7 +24,12 @@
         },
 
         methods: {
-            testButtonClicked() { sendMessageToServer('test button clicked') }
+
+            testButtonClicked() {
+                sendMessageToServer({ action: 'create question', payload: { exam: 1, text: 'test question'} })
+                    .catch(err => logger.error(err))
+            }
+
         }
 
     }
