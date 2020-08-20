@@ -20,15 +20,15 @@
         data() {
             return {
                 examForm: {
-                    title: null
-                }
+                    title: null,
+                },
             }
         },
 
         computed: {
 
             legendTitle() { return this.exam ? `Экзамен ${ this.exam.title }:` : 'Новый экзамен:' },
-            submitButtonTitle() { return this.exam ? 'Изменить экзамен' : 'Создать экзамен' },
+            submitButtonTitle() { return this.exam ? 'Сохранить экзамен' : 'Создать экзамен' },
 
         },
 
