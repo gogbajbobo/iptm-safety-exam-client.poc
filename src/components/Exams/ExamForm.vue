@@ -30,10 +30,7 @@
         },
 
         computed: {
-
             legendTitle() { return this.exam ? `Экзамен ${ this.exam.title }:` : 'Новый экзамен:' },
-            submitButtonTitle() { return this.exam ? 'Сохранить экзамен' : 'Создать экзамен' },
-
         },
 
         mounted() {
@@ -81,7 +78,7 @@
 
         </form>
 
-        <button @click="submitExamButtonPressed">{{ submitButtonTitle }}</button>
+        <button @click="submitExamButtonPressed">Сохранить экзамен</button>
 
     </div>
 
