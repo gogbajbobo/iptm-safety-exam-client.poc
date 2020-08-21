@@ -65,6 +65,8 @@
 
             submitExamButtonPressed() { return helper.loaderWithAction(this, this.submitAction()) },
 
+            examsButtonPressed() { router.push({ path: paths.EXAM_LIST })},
+
         },
 
         watch: {
@@ -85,6 +87,8 @@
 <template>
 
     <div>
+
+        <button @click="examsButtonPressed">Экзамены</button>
 
         <form name="examForm">
 
