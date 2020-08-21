@@ -6,6 +6,7 @@ export default {
 
     props: {
         question: { type: Object },
+        index: { type: Number },
     },
 
 }
@@ -16,6 +17,7 @@ export default {
 
 <div>
 
+    {{ index }}
     {{ question }}
     <hr>
 

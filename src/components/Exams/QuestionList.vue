@@ -45,8 +45,8 @@ export default {
 
 <div>
 
-    <template v-for="question in questions">
-        <question-item :question="question" :key="question.id"></question-item>
+    <template v-for="(question, index) in questions">
+        <question-item :key="question.id" :question="question" :index="index+1"></question-item>
     </template>
 
 </div>
