@@ -36,7 +36,14 @@
 
             exams() { return store.getters[getters.exams] },
             exam() { return this.exams.find(exam => exam.id === Number(this.examId)) },
-            legendTitle() { return this.exam ? `Экзамен ${ this.exam.title }:` : 'Новый экзамен:' },
+
+            legendTitle() {
+
+                return this.exam
+                    ? `Экзамен ${ this.exam?.id }: ${ this.exam?.title }:`
+                    : 'Новый экзамен:'
+
+            },
 
         },
 
