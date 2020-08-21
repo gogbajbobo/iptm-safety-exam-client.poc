@@ -17,6 +17,7 @@ const initialState = {
 
     user: null,
     exams: [],
+    questions: [],
 
 }
 
@@ -38,6 +39,8 @@ const store = new Vuex.Store({
         [mutations.replaceExam]: (state, exam) => state.exams = state.exams.map(e => exam.id === e.id ? exam : e),
 
         [mutations.deleteExam]: (state, id) => state.exams = state.exams.filter(exam => exam.id !== id),
+
+        [mutations.setQuestions]: (state, questions) => state.questions = questions,
 
     },
 

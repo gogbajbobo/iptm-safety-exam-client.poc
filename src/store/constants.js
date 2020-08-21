@@ -6,6 +6,8 @@ export const mutations = {
     replaceExam: 'replace exam',
     deleteExam: 'delete exam',
 
+    setQuestions: 'set questions',
+
 }
 
 export const actions = {
