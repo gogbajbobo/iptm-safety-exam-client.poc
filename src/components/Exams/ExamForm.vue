@@ -42,17 +42,23 @@
         },
 
         mounted() {
-            this.examForm = { ...this.exam }
+            this.refreshExamForm()
         },
 
         methods: {
+
+            refreshExamForm() { this.examForm = { ...this.exam } },
 
             submitAction() {
 
                 const examAction = this.exam ? actions.updateExam : actions.createExam
 
                 return store.dispatch(examAction, this.examForm)
-                    .then(exam => router.push({ path: `${ paths.EXAM_FORM }/${ exam?.id }` }))
+                    .then(exam => {
+                        this.examId
+                            ? this.refreshExamForm()
+                            : router.push({ path: `${ paths.EXAM_FORM }/${ exam?.id }` })
+                    })
                     .catch(err => alert(err))
 
             },
