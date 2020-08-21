@@ -29,13 +29,13 @@ const store = new Vuex.Store({
 
     mutations: {
 
-        [mutations.setUser]: (state, user) => { state.user = user },
+        [mutations.setUser]: (state, user) => state.user = user,
 
-        [mutations.setExams]: (state, exams) => { state.exams = exams },
+        [mutations.setExams]: (state, exams) => state.exams = exams,
 
-        [mutations.addExam]: (state, exam) => { state.exams.push(exam) },
+        [mutations.addExam]: (state, exam) => state.exams.push(exam),
 
-        [mutations.deleteExam]: (state, id) => { state.exams = state.exams.filter(exam => exam.id !== id) },
+        [mutations.deleteExam]: (state, id) => state.exams = state.exams.filter(exam => exam.id !== id),
 
     },
 
