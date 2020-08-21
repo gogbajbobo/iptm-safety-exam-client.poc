@@ -62,11 +62,13 @@ const store = new Vuex.Store({
         },
 
         [actions.createExam]: ({ commit }, payload) => {
+
             return send({ action: actions.createExam, payload })
                 .then(exam => {
                     commit(mutations.addExam, exam)
                     return exam
                 })
+
         },
 
         [actions.getExams]: ({ commit }) => {
@@ -77,11 +79,13 @@ const store = new Vuex.Store({
         },
 
         [actions.updateExam]: ({ commit }, payload) => {
+
             return send({ action: actions.updateExam, payload })
                 .then(exam => {
                     commit(mutations.replaceExam, exam)
                     return exam
                 })
+
         },
 
         [actions.deleteExam]: ({ commit }, payload) => {
