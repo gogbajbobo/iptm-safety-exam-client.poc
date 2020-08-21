@@ -20,6 +20,8 @@ export const actions = {
     updateExam: 'update exam',
     deleteExam: 'delete exam',
 
+    getQuestions: 'get questions',
+
 }
 
 export const getters = {

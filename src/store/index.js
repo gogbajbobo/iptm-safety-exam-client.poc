@@ -93,7 +93,14 @@ const store = new Vuex.Store({
             return send({ action: actions.deleteExam, payload })
                 .then(() => commit(mutations.deleteExam, payload))
 
-        }
+        },
+
+        [actions.getQuestions]: ({ commit }, payload) => {
+
+            return send({ action: actions.getQuestions, payload })
+                .then(payload => commit(mutations.setQuestions, payload))
+
+        },
 
     },
 
