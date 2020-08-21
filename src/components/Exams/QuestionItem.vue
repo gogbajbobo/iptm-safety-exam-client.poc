@@ -9,6 +9,13 @@ export default {
         index: { type: Number },
     },
 
+    methods: {
+
+        editButtonPressed() { this.$emit('edit-question') },
+        deleteButtonPressed() { this.$emit('delete-question') },
+
+    }
+
 }
 
 </script>
@@ -17,8 +24,10 @@ export default {
 
 <div>
 
-    {{ index }}
-    {{ question }}
+    {{ index }}:
+    {{ question.text }}
+    <button @click="editButtonPressed">Редактировать</button>
+    <button @click="deleteButtonPressed">Удалить</button>
     <hr>
 
 </div>
