@@ -10,14 +10,14 @@
 
     import { helper } from '@/services/helper'
 
-    import QuestionForm from './QuestionForm'
+    import QuestionList from './QuestionList'
 
 
     export default {
 
         name: 'ExamForm',
 
-        components: { QuestionForm },
+        components: { QuestionList },
 
         props: {
             examId: { type: String },
@@ -109,7 +109,7 @@
                 <hr>
 
                 <div v-if="exam">
-                    <question-form :exam-id="examId"></question-form>
+                    <question-list :exam-id="examId"></question-list>
                 </div>
 
             </fieldset>
