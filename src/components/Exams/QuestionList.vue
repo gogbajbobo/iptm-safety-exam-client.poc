@@ -5,6 +5,10 @@ import { actions, getters } from '@/store/constants'
 
 import { helper } from '@/services/helper'
 
+import router from '@/router'
+import { paths } from '@/router/paths'
+import { messages } from '@/services/messages'
+
 import QuestionItem from './QuestionItem'
 
 
@@ -36,6 +40,18 @@ export default {
 
         },
 
+        addQuestionButtonPressed() { console.log('addQuestionButtonPressed') },
+
+        editQuestionButtonPressed(question) { router.push({ path: `${ paths.QUESTION_FORM }/${ question?.id }` }) },
+
+        deleteQuestionButtonPressed(question) {
+
+            if (messages.confirm(`Удалить вопрос ${ question.text }?`)) {
+                return helper.loaderWithAction(this, store.dispatch(actions.deleteQuestion, question.id))
+            }
+
+        },
+
     },
 
 }
@@ -47,8 +63,18 @@ export default {
 <div>
 
     <template v-for="(question, index) in questions">
-        <question-item :key="question.id" :question="question" :index="index+1"></question-item>
+
+        <question-item :key="question.id"
+                       :question="question"
+                       :index="index+1"
+                       @edit-question="editQuestionButtonPressed(question)"
+                       @delete-question="deleteQuestionButtonPressed(question)">
+
+        </question-item>
+
     </template>
+
+    <button @click="addQuestionButtonPressed">Добавить вопрос</button>
 
 </div>
 
