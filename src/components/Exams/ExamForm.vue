@@ -57,7 +57,7 @@
                     .then(exam => {
                         this.examId
                             ? this.refreshExamForm()
-                            : router.push({ path: `${ paths.EXAM_FORM }/${ exam?.id }` })
+                            : router.push({ path: `${ paths.EXAM_FORM }/${ exam?.id }` }).then(this.refreshExamForm)
                     })
                     .catch(err => alert(err))
 
