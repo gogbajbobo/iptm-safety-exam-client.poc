@@ -42,6 +42,8 @@ const store = new Vuex.Store({
 
         [mutations.setQuestions]: (state, questions) => state.questions = questions,
 
+        [mutations.deleteQuestion]: (state, id) => state.questions = state.questions.filter(q => q.id !== id),
+
     },
 
     actions: {
@@ -101,6 +103,13 @@ const store = new Vuex.Store({
                 .then(payload => commit(mutations.setQuestions, payload))
 
         },
+
+        [actions.deleteQuestion]: ({ commit }, payload) => {
+
+            return send({ action: actions.deleteQuestion, payload })
+                .then(() => commit(mutations.deleteQuestion, payload))
+
+        }
 
     },
 

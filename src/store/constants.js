@@ -7,6 +7,7 @@ export const mutations = {
     deleteExam: 'delete exam',
 
     setQuestions: 'set questions',
+    deleteQuestion: 'delete question',
 
 }
 
@@ -21,6 +22,7 @@ export const actions = {
     deleteExam: 'delete exam',
 
     getQuestions: 'get questions',
+    deleteQuestion: 'delete question',
 
 }
 
