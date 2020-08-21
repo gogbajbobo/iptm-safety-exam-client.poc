@@ -9,7 +9,6 @@
     import { paths } from '@/router/paths'
 
     import { helper } from '@/services/helper'
-    // import { logger } from '@/services/logger'
 
     import QuestionForm from './QuestionForm'
 
