@@ -10,12 +10,12 @@ module.exports = {
     devServer: {
         port: 8082,
         overlay: {
-            warnings: true,
+            warnings: false,
             errors: true
         }
     },
 
-    lintOnSave: 'error',
+    lintOnSave: process.env.NODE_ENV === 'production' ? 'error' : 'warning',
 
     productionSourceMap: false,
 
