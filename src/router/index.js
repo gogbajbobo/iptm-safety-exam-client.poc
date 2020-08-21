@@ -35,9 +35,9 @@ const main = {
     path: paths.MAIN,
     name: Main.name,
     component: Main,
-    meta: {
-        anonymousAccess: false
-    }
+    // meta: {
+    //     anonymousAccess: false
+    // }
 }
 
 const exams = {
