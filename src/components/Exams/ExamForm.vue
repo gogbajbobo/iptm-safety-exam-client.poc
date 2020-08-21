@@ -59,13 +59,15 @@
 
                 const examAction = this.exam ? actions.updateExam : actions.createExam
 
-                return store.dispatch(examAction, this.examForm)
+                const action = store.dispatch(examAction, this.examForm)
                     .then(exam => {
                         this.examId
                             ? this.refreshExamForm()
                             : router.push({ path: `${ paths.EXAM_FORM }/${ exam?.id }` }).then(this.refreshExamForm)
                     })
                     .catch(err => alert(err))
+
+                return helper.loaderWithAction(this, action)
 
             },
 
