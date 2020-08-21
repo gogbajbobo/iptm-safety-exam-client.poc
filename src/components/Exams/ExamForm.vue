@@ -106,6 +106,7 @@
 
                 <label for="title">Название: </label>
                 <input type="text" name="title" id="title" required v-model="examForm.title" />
+                <button @click="submitExamButtonPressed" :disabled="formIsPristine">Сохранить</button>
                 <hr>
 
                 <div v-if="exam">
@@ -115,8 +116,6 @@
             </fieldset>
 
         </form>
-
-        <button @click="submitExamButtonPressed" :disabled="formIsPristine">Сохранить экзамен</button>
 
     </div>
 
