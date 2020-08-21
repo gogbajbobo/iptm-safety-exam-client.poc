@@ -7,6 +7,7 @@ import { helper } from '@/services/helper'
 
 import QuestionItem from './QuestionItem'
 
+
 export default {
 
     name: 'QuestionList',
