@@ -4,7 +4,7 @@ export const paths = {
     ROOT: '/',
     MAIN: '/main',
     EXAM_LIST: '/exams',
-    EXAM_FORM: '/exam-form',
-    QUESTION_FORM: '/question-form'
+    EXAM_FORM: '/exam',
+    QUESTION_FORM: '/question'
 
 }
