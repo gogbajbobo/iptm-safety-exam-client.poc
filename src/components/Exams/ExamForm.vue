@@ -81,7 +81,7 @@
 
             examForm: {
                 handler: function () {
-                    this.formIsPristine = _.isEqual(this.examForm, this.exam)
+                    this.formIsPristine = this.exam ? _.isEqual(this.examForm, this.exam) : !this.examForm.title
                 },
                 deep: true,
             }
