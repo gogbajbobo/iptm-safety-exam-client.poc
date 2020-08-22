@@ -40,9 +40,9 @@ export default {
 
         },
 
-        addQuestionButtonPressed() { console.log('addQuestionButtonPressed') },
+        addQuestionButtonPressed() { router.push({ path: `${ paths.QUESTION_FORM }/${this.examId}` }) },
 
-        editQuestionButtonPressed(question) { router.push({ path: `${ paths.QUESTION_FORM }/${ question?.id }` }) },
+        editQuestionButtonPressed(question) { router.push({ path: `${ paths.QUESTION_FORM }/${this.examId}/${ question?.id }` }) },
 
         deleteQuestionButtonPressed(question) {
 

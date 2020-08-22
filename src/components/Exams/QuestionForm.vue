@@ -5,6 +5,7 @@ export default {
     name: 'QuestionForm',
 
     props: {
+        questionId: { type: [ String, Number ] },
         examId: { type: [ String, Number ] },
     },
 
@@ -31,6 +32,9 @@ export default {
 <div>
 
     <div>
+
+        {{ questionId || 'new question' }}
+        {{ examId || 'no exam' }}
 
         <label for="question">Вопрос: </label>
         <input type="text" name="question" id="question" required v-model="newQuestion" />
