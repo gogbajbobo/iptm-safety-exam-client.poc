@@ -42,6 +42,12 @@ const store = new Vuex.Store({
 
         [mutations.setQuestions]: (state, questions) => state.questions = questions,
 
+        [mutations.addQuestion]: (state, question) => state.questions.push(question),
+
+        [mutations.replaceQuestion]: (state, question) => {
+            state.questions = state.questions.map(q => question.id === q.id ? question : q)
+        },
+
         [mutations.deleteQuestion]: (state, id) => state.questions = state.questions.filter(q => q.id !== id),
 
     },
@@ -97,10 +103,30 @@ const store = new Vuex.Store({
 
         },
 
+        [actions.createQuestion]: ({ commit }, payload) => {
+
+            return send({ action: actions.createQuestion, payload })
+                .then(question => {
+                    commit(mutations.addQuestion, question)
+                    return question
+                })
+
+        },
+
         [actions.getQuestions]: ({ commit }, payload) => {
 
             return send({ action: actions.getQuestions, payload })
                 .then(payload => commit(mutations.setQuestions, payload))
+
+        },
+
+        [actions.updateQuestion]: ({ commit }, payload) => {
+
+            return send({ action: actions.updateQuestion, payload })
+                .then(question => {
+                    commit(mutations.replaceQuestion, question)
+                    return question
+                })
 
         },
 
