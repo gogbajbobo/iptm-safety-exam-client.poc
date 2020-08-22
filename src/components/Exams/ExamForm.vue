@@ -73,7 +73,7 @@
 
             submitExamButtonPressed() { return helper.loaderWithAction(this, this.submitAction()) },
 
-            examsButtonPressed() { router.push({ path: paths.EXAM_LIST })},
+            examsButtonPressed() { router.push({ path: paths.EXAM_LIST }) },
 
         },
 
@@ -98,25 +98,21 @@
 
         <button @click="examsButtonPressed">Экзамены</button>
 
-        <form name="examForm">
+        <fieldset>
 
-            <fieldset>
+            <legend>{{ legendTitle }}</legend>
 
-                <legend>{{ legendTitle }}</legend>
+            <label for="title">Название: </label>
+            <input type="text" name="title" id="title" required v-model="examForm.title" />
+            <button @click="submitExamButtonPressed" :disabled="formIsPristine">Сохранить</button>
 
-                <label for="title">Название: </label>
-                <input type="text" name="title" id="title" required v-model="examForm.title" />
-                <button @click="submitExamButtonPressed" :disabled="formIsPristine">Сохранить</button>
+            <div v-if="exam">
+                <hr>
+                Вопросы:<hr>
+                <question-list :exam-id="examId"></question-list>
+            </div>
 
-                <div v-if="exam">
-                    <hr>
-                    Вопросы:<hr>
-                    <question-list :exam-id="examId"></question-list>
-                </div>
-
-            </fieldset>
-
-        </form>
+        </fieldset>
 
     </div>
 
