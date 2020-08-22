@@ -64,6 +64,8 @@ export default {
 
         submitQuestionButtonPressed() { return helper.loaderWithAction(this, this.submitAction()) },
 
+        questionsButtonPressed() { router.push({ path: `${ paths.EXAM_FORM }/${ this.examId }` }) },
+
     },
 
     watch: {
@@ -93,6 +95,8 @@ export default {
         <fieldset>
 
             <legend>Экзамен: {{ exam.title }}</legend>
+
+            <button @click="questionsButtonPressed">Вопросы</button>
 
             <fieldset>
 
