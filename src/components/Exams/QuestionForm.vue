@@ -101,7 +101,10 @@ export default {
                 <label for="question">Вопрос: </label>
                 <input type="text" name="question" id="question" required v-model="questionForm.text" />
                 <button @click="submitQuestionButtonPressed" :disabled="formIsPristine">Сохранить</button>
-                <hr>
+
+                <template v-if="question">
+                    <hr>
+                </template>
 
             </fieldset>
 
