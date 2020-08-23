@@ -33,6 +33,7 @@ const store = new Vuex.Store({
 
         [mutations.setUser]: (state, user) => state.user = user,
 
+
         [mutations.setExams]: (state, exams) => state.exams = exams,
 
         [mutations.addExam]: (state, exam) => state.exams.push(exam),
@@ -40,6 +41,7 @@ const store = new Vuex.Store({
         [mutations.replaceExam]: (state, exam) => state.exams = state.exams.map(e => exam.id === e.id ? exam : e),
 
         [mutations.deleteExam]: (state, id) => state.exams = state.exams.filter(exam => exam.id !== id),
+
 
         [mutations.setQuestions]: (state, questions) => state.questions = questions,
 
@@ -51,7 +53,14 @@ const store = new Vuex.Store({
 
         [mutations.deleteQuestion]: (state, id) => state.questions = state.questions.filter(q => q.id !== id),
 
+
         [mutations.setAnswers]: (state, answers) => state.answers = answers,
+
+        [mutations.addAnswer]: (state, answer) => state.answers.push(answer),
+
+        [mutations.replaceAnswer]: (state, answer) => {
+            state.answers = state.answers.map(a => answer.id === a.id ? answer : a)
+        },
 
     },
 
@@ -140,10 +149,30 @@ const store = new Vuex.Store({
 
         },
 
+        [actions.createAnswer]: ({ commit }, payload) => {
+
+            return send({ action: actions.createAnswer, payload })
+                .then(answer => {
+                    commit(mutations.addAnswer, answer)
+                    return answer
+                })
+
+        },
+
         [actions.getAnswers]: ({ commit }, payload) => {
 
             return send({ action: actions.getAnswers, payload })
                 .then(answers => commit(mutations.setAnswers, answers))
+
+        },
+
+        [actions.updateAnswer]: ({ commit }, payload) => {
+
+            return send({ action: actions.updateAnswer, payload })
+                .then(answer => {
+                    commit(mutations.replaceAnswer, answer)
+                    return answer
+                })
 
         },
 
