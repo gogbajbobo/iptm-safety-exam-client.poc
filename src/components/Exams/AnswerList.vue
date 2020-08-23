@@ -4,6 +4,8 @@ import store from '@/store'
 import { actions, getters } from '@/store/constants'
 import { helper } from '@/services/helper'
 
+import router from '@/router'
+import { paths } from '@/router/paths'
 
 import AnswerItem from '@/components/Exams/AnswerItem'
 
@@ -37,6 +39,7 @@ export default {
         },
 
         addAnswerButtonPressed() {
+            router.push({ path: `${ paths.ANSWER_FORM }/${ this.examId }/${ this.questionId }` })
         },
 
         editAnswerButtonPressed(answer) {},
