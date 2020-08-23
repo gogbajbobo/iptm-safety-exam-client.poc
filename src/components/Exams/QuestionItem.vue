@@ -14,7 +14,7 @@ export default {
         editButtonPressed() { this.$emit('edit-question') },
         deleteButtonPressed() { this.$emit('delete-question') },
 
-    }
+    },
 
 }
 
