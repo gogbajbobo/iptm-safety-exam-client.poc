@@ -29,6 +29,9 @@ export default {
 
         examsButtonPressed() { router.push({ path: paths.EXAM_LIST }) },
         questionsButtonPressed() { router.push({ path: `${ paths.EXAM_FORM }/${ this.examId }` }) },
+        answersButtonPressed() {
+            router.push({ path: `${ paths.QUESTION_FORM }/${ this.examId }/${ this.questionId }` })
+        },
 
     },
 
@@ -47,6 +50,20 @@ export default {
             <legend>Экзамен: {{ exam.title }}</legend>
 
             <button @click="questionsButtonPressed">Вопросы</button>
+
+            <fieldset>
+
+                <legend>Вопрос: {{ question.text }}</legend>
+
+                <button @click="answersButtonPressed">Ответы</button>
+
+                <fieldset>
+
+                    <legend>{{ answerText }}</legend>
+
+                </fieldset>
+
+            </fieldset>
 
         </fieldset>
 
