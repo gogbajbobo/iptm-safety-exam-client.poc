@@ -42,7 +42,9 @@ export default {
             router.push({ path: `${ paths.ANSWER_FORM }/${ this.examId }/${ this.questionId }` })
         },
 
-        editAnswerButtonPressed(answer) {},
+        editAnswerButtonPressed(answer) {
+            router.push({ path: `${ paths.ANSWER_FORM }/${ this.examId }/${ this.questionId }/${ answer.id }` })
+        },
 
         deleteAnswerButtonPressed(answer) {},
 
