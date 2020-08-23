@@ -108,7 +108,8 @@
 
             <div v-if="exam">
                 <hr>
-                Вопросы:<hr>
+                Вопросы:
+                <hr>
                 <question-list :exam-id="examId"></question-list>
             </div>
 
