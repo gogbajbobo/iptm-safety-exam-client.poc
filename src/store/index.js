@@ -62,6 +62,8 @@ const store = new Vuex.Store({
             state.answers = state.answers.map(a => answer.id === a.id ? answer : a)
         },
 
+        [mutations.deleteAnswer]: (state, id) => state.answers = state.answers.filter(a => a.id !== id ),
+
     },
 
     actions: {
@@ -173,6 +175,13 @@ const store = new Vuex.Store({
                     commit(mutations.replaceAnswer, answer)
                     return answer
                 })
+
+        },
+
+        [actions.deleteAnswer]: ({ commit }, payload) => {
+
+            return send({ action: actions.deleteAnswer, payload })
+                .then(() => commit(mutations.deleteAnswer, payload))
 
         },
 

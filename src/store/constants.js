@@ -15,6 +15,7 @@ export const mutations = {
     setAnswers: 'set answers',
     addAnswer: 'add answer',
     replaceAnswer: 'replace answer',
+    deleteAnswer: 'delete answer',
 
 }
 
@@ -36,6 +37,7 @@ export const actions = {
     createAnswer: 'create answer',
     getAnswers: 'get answers',
     updateAnswer: 'update answer',
+    deleteAnswer: 'delete answer',
 
 }
 
