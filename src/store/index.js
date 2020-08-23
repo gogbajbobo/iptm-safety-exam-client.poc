@@ -18,6 +18,7 @@ const initialState = {
     user: null,
     exams: [],
     questions: [],
+    answers: [],
 
 }
 
@@ -49,6 +50,8 @@ const store = new Vuex.Store({
         },
 
         [mutations.deleteQuestion]: (state, id) => state.questions = state.questions.filter(q => q.id !== id),
+
+        [mutations.setAnswers]: (state, answers) => state.answers = answers,
 
     },
 
@@ -135,7 +138,14 @@ const store = new Vuex.Store({
             return send({ action: actions.deleteQuestion, payload })
                 .then(() => commit(mutations.deleteQuestion, payload))
 
-        }
+        },
+
+        [actions.getAnswers]: ({ commit }, payload) => {
+
+            return send({ action: actions.getAnswers, payload })
+                .then(answers => commit(mutations.setAnswers, answers))
+
+        },
 
     },
 
@@ -148,6 +158,8 @@ const store = new Vuex.Store({
         [getters.exams]: state => state.exams,
 
         [getters.questions]: state => state.questions,
+
+        [getters.answers]: state => state.answers,
 
     },
 
