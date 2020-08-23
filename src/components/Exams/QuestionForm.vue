@@ -10,9 +10,14 @@ import { helper } from '@/services/helper'
 import router from '@/router'
 import { paths } from '@/router/paths'
 
+import AnswerList from '@/components/Exams/AnswerList'
+
+
 export default {
 
     name: 'QuestionForm',
+
+    components: { AnswerList },
 
     props: {
         questionId: { type: [ String, Number ] },
@@ -109,6 +114,9 @@ export default {
 
                 <template v-if="question">
                     <hr>
+                    Ответы:
+                    <hr>
+                    <answer-list></answer-list>
                 </template>
 
             </fieldset>
