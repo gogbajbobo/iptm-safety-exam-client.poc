@@ -6,6 +6,7 @@ import Main from '@/components/Main'
 import ExamList from '@/components/Exams/ExamList'
 import ExamForm from '@/components/Exams/ExamForm'
 import QuestionForm from '@/components/Exams/QuestionForm'
+import AnswerForm from '@/components/Exams/AnswerForm'
 
 import EventBus, { events } from '@/services/event.bus'
 
@@ -61,12 +62,20 @@ const questionForm = {
     props: true,
 }
 
+const answerForm = {
+    path: `${ paths.ANSWER_FORM }/:examId/:questionId/:answerId?`,
+    name: AnswerForm.name,
+    component: AnswerForm,
+    props: true,
+}
+
 const routes = [
     login,
     _, main,
     exams,
     examForm,
     questionForm,
+    answerForm,
 ]
 
 const router = new Router({
