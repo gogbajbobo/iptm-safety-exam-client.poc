@@ -35,7 +35,6 @@ export default {
         getQuestions() {
 
             const action = store.dispatch(actions.getQuestions, { exam: this.examId })
-
             return helper.loaderWithAction(this, action)
 
         },
