@@ -32,7 +32,6 @@ export default {
 
         exam() { return store.getters[getters.exams].find(exam => exam.id === Number(this.examId)) },
         question() { return store.getters[getters.questions].find(q => q.id === Number(this.questionId)) },
-
         questionTitle() { return this.question ? this.question.text : 'Новый вопрос' },
 
     },
@@ -63,7 +62,6 @@ export default {
         },
 
         submitQuestionButtonPressed() { return helper.loaderWithAction(this, this.submitAction()) },
-
         questionsButtonPressed() { router.push({ path: `${ paths.EXAM_FORM }/${ this.examId }` }) },
         examsButtonPressed() { router.push({ path: paths.EXAM_LIST }) },
 
