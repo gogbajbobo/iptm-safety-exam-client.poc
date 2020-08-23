@@ -20,8 +20,8 @@ export default {
     components: { AnswerList },
 
     props: {
-        questionId: { type: [ String, Number ] },
         examId: { type: [ String, Number ] },
+        questionId: { type: [ String, Number ] },
     },
 
     data() {
