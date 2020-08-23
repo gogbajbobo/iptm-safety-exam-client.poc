@@ -65,6 +65,7 @@ export default {
         submitQuestionButtonPressed() { return helper.loaderWithAction(this, this.submitAction()) },
 
         questionsButtonPressed() { router.push({ path: `${ paths.EXAM_FORM }/${ this.examId }` }) },
+        examsButtonPressed() { router.push({ path: paths.EXAM_LIST }) },
 
     },
 
@@ -91,6 +92,8 @@ export default {
 <div>
 
     <div>
+
+        <button @click="examsButtonPressed">Экзамены</button>
 
         <fieldset>
 
