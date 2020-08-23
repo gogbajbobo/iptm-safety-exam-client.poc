@@ -22,15 +22,15 @@ export default {
 
 <template>
 
-<div>
+    <div>
 
-    {{ index }}:
-    {{ question.text }}
-    <button @click="editButtonPressed">Редактировать</button>
-    <button @click="deleteButtonPressed">Удалить</button>
-    <hr>
+        {{ index }}:
+        {{ question.text }}
+        <button @click="editButtonPressed">Редактировать</button>
+        <button @click="deleteButtonPressed">Удалить</button>
+        <hr>
 
-</div>
+    </div>
 
 </template>
 

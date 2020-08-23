@@ -54,23 +54,23 @@ export default {
 
 <template>
 
-<div>
+    <div>
 
-    <template v-for="(answer, index) in answers">
+        <template v-for="(answer, index) in answers">
 
-        <answer-item :key="answer.id"
-                     :answer="answer"
-                     :index="index+1"
-                     @edit-answer="editAnswerButtonPressed(answer)"
-                     @delete-answer="deleteAnswerButtonPressed(answer)">
+            <answer-item :key="answer.id"
+                         :answer="answer"
+                         :index="index+1"
+                         @edit-answer="editAnswerButtonPressed(answer)"
+                         @delete-answer="deleteAnswerButtonPressed(answer)">
 
-        </answer-item>
+            </answer-item>
 
-    </template>
+        </template>
 
-    <button @click="addAnswerButtonPressed">Добавить ответ</button>
+        <button @click="addAnswerButtonPressed">Добавить ответ</button>
 
-</div>
+    </div>
 
 </template>
 

@@ -61,23 +61,23 @@ export default {
 
 <template>
 
-<div>
+    <div>
 
-    <template v-for="(question, index) in questions">
+        <template v-for="(question, index) in questions">
 
-        <question-item :key="question.id"
-                       :question="question"
-                       :index="index+1"
-                       @edit-question="editQuestionButtonPressed(question)"
-                       @delete-question="deleteQuestionButtonPressed(question)">
+            <question-item :key="question.id"
+                           :question="question"
+                           :index="index+1"
+                           @edit-question="editQuestionButtonPressed(question)"
+                           @delete-question="deleteQuestionButtonPressed(question)">
 
-        </question-item>
+            </question-item>
 
-    </template>
+        </template>
 
-    <button @click="addQuestionButtonPressed">Добавить вопрос</button>
+        <button @click="addQuestionButtonPressed">Добавить вопрос</button>
 
-</div>
+    </div>
 
 </template>
 

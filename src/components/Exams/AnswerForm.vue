@@ -10,9 +10,9 @@ export default {
 
 <template>
 
-<div>
-    AnswerForm
-</div>
+    <div>
+        AnswerForm
+    </div>
 
 </template>
 
