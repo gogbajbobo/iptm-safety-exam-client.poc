@@ -6,7 +6,8 @@ import router from '@/router'
 import { paths } from '@/router/paths'
 
 import store from '@/store'
-import { getters } from '@/store/constants'
+import { actions, getters } from '@/store/constants'
+import { helper } from '@/services/helper'
 
 
 export default {
@@ -51,7 +52,24 @@ export default {
             router.push({ path: `${ paths.QUESTION_FORM }/${ this.examId }/${ this.questionId }` })
         },
 
-        submitAnswerButtonPressed() {},
+        submitAnswerButtonPressed() {
+
+            const answerAction = this.answer ? actions.updateAnswer : actions.createAnswer
+
+            const action = store.dispatch(answerAction, { ...this.answerForm, question: this.questionId })
+                .then(answer => {
+                    this.answerId
+                        ? this.refreshAnswerForm()
+                        : router.push({
+                            path: `${ paths.ANSWER_FORM }/${ this.examId }/${ this.questionId }/${ answer?.id }`
+                        })
+                            .then(this.refreshAnswerForm)
+                })
+                .catch(err => alert(err))
+
+            return helper.loaderWithAction(this, action)
+
+        },
 
     },
 
