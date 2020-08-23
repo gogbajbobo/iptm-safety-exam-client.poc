@@ -1,5 +1,7 @@
 <script>
 
+import _ from 'lodash'
+
 import router from '@/router'
 import { paths } from '@/router/paths'
 
@@ -46,6 +48,33 @@ export default {
         submitAnswerButtonPressed() {},
 
     },
+
+    watch: {
+
+        answerForm: {
+            handler: function () {
+
+                if (!this.answer) {
+
+                    this.formIsPristine = !this.answerForm.text
+                    return
+
+                }
+
+                const answer = Object.keys(this.answer).reduce((result, key) => {
+
+                    if (key !== 'isCorrect') result[key] = this.answer[key]
+                    return result
+
+                }, {})
+
+                this.formIsPristine = _.isEqual(this.answerForm, answer)
+
+            },
+            deep: true,
+        }
+
+    }
 
 }
 
