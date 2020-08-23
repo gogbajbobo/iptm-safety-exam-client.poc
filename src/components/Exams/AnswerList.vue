@@ -7,6 +7,8 @@ import { helper } from '@/services/helper'
 import router from '@/router'
 import { paths } from '@/router/paths'
 
+import { messages } from '@/services/messages'
+
 import AnswerItem from '@/components/Exams/AnswerItem'
 
 
@@ -46,7 +48,13 @@ export default {
             router.push({ path: `${ paths.ANSWER_FORM }/${ this.examId }/${ this.questionId }/${ answer.id }` })
         },
 
-        deleteAnswerButtonPressed(answer) {},
+        deleteAnswerButtonPressed(answer) {
+
+            if (messages.confirm(`Удалить ответ ${ answer.text }?`)) {
+                return helper.loaderWithAction(this, store.dispatch(actions.deleteAnswer, answer.id))
+            }
+
+        },
 
     },
 
