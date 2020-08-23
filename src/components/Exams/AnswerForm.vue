@@ -21,7 +21,7 @@ export default {
         exam() { return store.getters[getters.exams].find(exam => exam.id === Number(this.examId)) },
         question() { return store.getters[getters.questions].find(q => q.id === Number(this.questionId)) },
         answer() { return store.getters[getters.answers].find(a => a.id === Number(this.answerId)) },
-        answerTitle() { return this.answer ? this.answer.text : 'Новый ответ' },
+        answerText() { return this.answer ? this.answer.text : 'Новый ответ' },
 
     },
 

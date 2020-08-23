@@ -37,7 +37,7 @@ export default {
 
         exam() { return store.getters[getters.exams].find(exam => exam.id === Number(this.examId)) },
         question() { return store.getters[getters.questions].find(q => q.id === Number(this.questionId)) },
-        questionTitle() { return this.question ? this.question.text : 'Новый вопрос' },
+        questionText() { return this.question ? this.question.text : 'Новый вопрос' },
 
     },
 
@@ -104,7 +104,7 @@ export default {
 
             <fieldset>
 
-                <legend>{{ questionTitle }}</legend>
+                <legend>{{ questionText }}</legend>
 
                 <label for="question">Вопрос: </label>
                 <input type="text" name="question" id="question" required v-model="questionForm.text" />
