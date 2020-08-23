@@ -16,6 +16,15 @@ export default {
         answerId: { type: [ String, Number ] },
     },
 
+    data() {
+        return {
+            answerForm: {
+                text: null,
+            },
+            formIsPristine: true,
+        }
+    },
+
     computed: {
 
         exam() { return store.getters[getters.exams].find(exam => exam.id === Number(this.examId)) },
@@ -32,6 +41,8 @@ export default {
         answersButtonPressed() {
             router.push({ path: `${ paths.QUESTION_FORM }/${ this.examId }/${ this.questionId }` })
         },
+
+        submitAnswerButtonPressed() {},
 
     },
 
@@ -60,6 +71,10 @@ export default {
                 <fieldset>
 
                     <legend>{{ answerText }}</legend>
+
+                    <label for="answer">Ответ: </label>
+                    <input type="text" name="answer" id="answer" required v-model="answerForm.text" />
+                    <button @click="submitAnswerButtonPressed" :disabled="formIsPristine">Сохранить</button>
 
                 </fieldset>
 
