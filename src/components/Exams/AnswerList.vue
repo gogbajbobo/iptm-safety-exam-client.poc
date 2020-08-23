@@ -9,6 +9,7 @@ export default {
     name: 'AnswerList',
 
     props: {
+        examId: { type: [ String, Number ] },
         questionId: { type: [ String, Number ] },
     },
 

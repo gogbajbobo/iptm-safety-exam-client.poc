@@ -116,7 +116,7 @@ export default {
                     <hr>
                     Ответы:
                     <hr>
-                    <answer-list :question-id="question.id"></answer-list>
+                    <answer-list :exam-id="exam.id" :question-id="question.id"></answer-list>
                 </template>
 
             </fieldset>
