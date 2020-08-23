@@ -92,8 +92,6 @@ export default {
 
 <template>
 
-<div>
-
     <div>
 
         <button @click="examsButtonPressed">Экзамены</button>
@@ -124,8 +122,6 @@ export default {
         </fieldset>
 
     </div>
-
-</div>
 
 </template>
 
