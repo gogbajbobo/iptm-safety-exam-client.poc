@@ -4,9 +4,15 @@ import store from '@/store'
 import { actions, getters } from '@/store/constants'
 import { helper } from '@/services/helper'
 
+
+import AnswerItem from '@/components/Exams/AnswerItem'
+
+
 export default {
 
     name: 'AnswerList',
+
+    components: { AnswerItem },
 
     props: {
         examId: { type: [ String, Number ] },
@@ -30,6 +36,13 @@ export default {
 
         },
 
+        addAnswerButtonPressed() {
+        },
+
+        editAnswerButtonPressed(answer) {},
+
+        deleteAnswerButtonPressed(answer) {},
+
     },
 
 }
@@ -39,7 +52,21 @@ export default {
 <template>
 
 <div>
-    AnswerList
+
+    <template v-for="(answer, index) in answers">
+
+        <answer-item :key="answer.id"
+                     :answer="answer"
+                     :index="index+1"
+                     @edit-answer="editAnswerButtonPressed(answer)"
+                     @delete-answer="deleteAnswerButtonPressed(answer)">
+
+        </answer-item>
+
+    </template>
+
+    <button @click="addAnswerButtonPressed">Добавить ответ</button>
+
 </div>
 
 </template>
