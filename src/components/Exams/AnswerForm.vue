@@ -37,7 +37,13 @@ export default {
 
     },
 
+    mounted() {
+        this.refreshAnswerForm()
+    },
+
     methods: {
+
+        refreshAnswerForm() { this.answerForm = { ...this.answer } },
 
         examsButtonPressed() { router.push({ path: paths.EXAM_LIST }) },
         questionsButtonPressed() { router.push({ path: `${ paths.EXAM_FORM }/${ this.examId }` }) },
