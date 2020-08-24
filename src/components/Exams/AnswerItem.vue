@@ -13,6 +13,16 @@ export default {
 
         editButtonPressed() { this.$emit('edit-answer') },
         deleteButtonPressed() { this.$emit('delete-answer') },
+        correctAnswerSelected() {
+
+            if (!this.answer.isCorrect) {
+
+                this.$refs['radioInput'].checked = false
+                this.$emit('correct-answer-selected')
+
+            }
+
+        },
 
     },
 
@@ -24,6 +34,13 @@ export default {
 
     <div>
 
+        <input type="radio"
+               ref="radioInput"
+               title="correct-answer-button"
+               name="correct-answer"
+               :checked="answer.isCorrect"
+               :value="answer.id"
+               @click="correctAnswerSelected">
         {{ index }}:
         {{ answer.text }}
         <button @click="editButtonPressed">Редактировать</button>

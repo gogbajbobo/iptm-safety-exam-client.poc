@@ -56,6 +56,13 @@ export default {
 
         },
 
+        correctAnswerSelected(answer) {
+
+            const action = store.dispatch(actions.updateAnswer, { answer: answer.id, isCorrect: true })
+            return helper.loaderWithAction(this, action)
+
+        },
+
     },
 
 }
@@ -72,7 +79,8 @@ export default {
                          :answer="answer"
                          :index="index+1"
                          @edit-answer="editAnswerButtonPressed(answer)"
-                         @delete-answer="deleteAnswerButtonPressed(answer)">
+                         @delete-answer="deleteAnswerButtonPressed(answer)"
+                         @correct-answer-selected="correctAnswerSelected(answer)">
 
             </answer-item>
 
