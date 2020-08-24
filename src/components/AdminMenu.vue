@@ -23,7 +23,7 @@
 
 <template>
 
-    <div>
+    <div class="admin-menu">
 
         <button @click="examButtonPressed">Экзамены</button>
         <button @click="testExamCreateButtonPressed">Создать тестовый экзамен</button>
@@ -33,5 +33,9 @@
 </template>
 
 <style scoped>
+
+    .admin-menu button {
+        margin: 10px;
+    }
 
 </style>
