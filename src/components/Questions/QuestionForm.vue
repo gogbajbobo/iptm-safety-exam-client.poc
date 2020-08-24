@@ -10,7 +10,7 @@ import { helper } from '@/services/helper'
 import router from '@/router'
 import { paths } from '@/router/paths'
 
-import AnswerList from '@/components/Exams/AnswerList'
+import AnswerList from '@/components/Answers/AnswerList'
 
 
 export default {

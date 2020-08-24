@@ -5,8 +5,8 @@ import Login from '@/components/Login'
 import Main from '@/components/Main'
 import ExamList from '@/components/Exams/ExamList'
 import ExamForm from '@/components/Exams/ExamForm'
-import QuestionForm from '@/components/Exams/QuestionForm'
-import AnswerForm from '@/components/Exams/AnswerForm'
+import QuestionForm from '@/components/Questions/QuestionForm'
+import AnswerForm from '@/components/Answers/AnswerForm'
 
 import EventBus, { events } from '@/services/event.bus'
 

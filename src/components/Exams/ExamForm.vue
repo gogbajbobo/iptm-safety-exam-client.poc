@@ -10,7 +10,7 @@
 
     import { helper } from '@/services/helper'
 
-    import QuestionList from './QuestionList'
+    import QuestionList from '../Questions/QuestionList'
 
 
     export default {

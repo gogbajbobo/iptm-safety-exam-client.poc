@@ -9,7 +9,7 @@ import { paths } from '@/router/paths'
 
 import { messages } from '@/services/messages'
 
-import AnswerItem from '@/components/Exams/AnswerItem'
+import AnswerItem from '@/components/Answers/AnswerItem'
 
 
 export default {
