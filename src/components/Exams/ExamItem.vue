@@ -25,7 +25,7 @@
 
         <article v-if="exam" class="exam-item-article">
 
-            <h3>{{ exam.id }}. {{ exam.title }}</h3>
+            <h3>{{ exam.id }}. {{ exam.title }} </h3>
 
             <button @click="editButtonPressed">Редактировать</button>
             <button @click="deleteButtonPressed">Удалить</button>
@@ -41,6 +41,10 @@
     .exam-item-article {
         padding-bottom: 1em;
         border-bottom: thin gray solid;
+    }
+
+    .exam-item-article h3 {
+        display: inline;
     }
 
 </style>
