@@ -77,23 +77,7 @@ export default {
 
         answerForm: {
             handler: function () {
-
-                if (!this.answer) {
-
-                    this.formIsPristine = !this.answerForm.text
-                    return
-
-                }
-
-                const answer = Object.keys(this.answer).reduce((result, key) => {
-
-                    if (key !== 'isCorrect') result[key] = this.answer[key]
-                    return result
-
-                }, {})
-
-                this.formIsPristine = _.isEqual(this.answerForm, answer)
-
+                this.formIsPristine = this.answer ? _.isEqual(this.answerForm, this.answer) : !this.answerForm.text
             },
             deep: true,
         }
