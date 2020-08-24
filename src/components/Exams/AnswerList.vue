@@ -58,7 +58,10 @@ export default {
 
         correctAnswerSelected(answer) {
 
-            const action = store.dispatch(actions.updateAnswer, { answer: answer.id, isCorrect: true })
+            const action = store.dispatch(
+                actions.setAnswerAsCorrect,
+                { id: answer.id, question: this.questionId }
+            )
             return helper.loaderWithAction(this, action)
 
         },

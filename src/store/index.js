@@ -178,6 +178,13 @@ const store = new Vuex.Store({
 
         },
 
+        [actions.setAnswerAsCorrect]: ({ commit }, payload) => {
+
+            return send({ action: actions.setAnswerAsCorrect, payload})
+                .then(answers => commit(mutations.setAnswers, answers))
+
+        },
+
         [actions.deleteAnswer]: ({ commit }, payload) => {
 
             return send({ action: actions.deleteAnswer, payload })

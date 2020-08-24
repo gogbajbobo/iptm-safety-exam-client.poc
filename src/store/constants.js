@@ -37,6 +37,7 @@ export const actions = {
     createAnswer: 'create answer',
     getAnswers: 'get answers',
     updateAnswer: 'update answer',
+    setAnswerAsCorrect: 'set answer as correct',
     deleteAnswer: 'delete answer',
 
 }
