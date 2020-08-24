@@ -25,7 +25,7 @@
 
     <div class="admin-menu">
 
-        <button @click="examButtonPressed">Экзамены</button>
+        <button @click="examButtonPressed">Список экзаменов</button>
         <button @click="testExamCreateButtonPressed">Создать тестовый экзамен</button>
 
     </div>
