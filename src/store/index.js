@@ -36,7 +36,7 @@ const store = new Vuex.Store({
 
         [mutations.setExams]: (state, exams) => state.exams = exams,
 
-        [mutations.addExam]: (state, exam) => state.exams.push(exam),
+        [mutations.addExam]: (state, exam) => state.exams = state.exams.concat(exam),
 
         [mutations.replaceExam]: (state, exam) => state.exams = state.exams.map(e => exam.id === e.id ? exam : e),
 
@@ -45,7 +45,7 @@ const store = new Vuex.Store({
 
         [mutations.setQuestions]: (state, questions) => state.questions = questions,
 
-        [mutations.addQuestion]: (state, question) => state.questions.push(question),
+        [mutations.addQuestion]: (state, question) => state.questions = state.questions.concat(question),
 
         [mutations.replaceQuestion]: (state, question) => {
             state.questions = state.questions.map(q => question.id === q.id ? question : q)
@@ -56,7 +56,7 @@ const store = new Vuex.Store({
 
         [mutations.setAnswers]: (state, answers) => state.answers = answers,
 
-        [mutations.addAnswer]: (state, answer) => state.answers.push(answer),
+        [mutations.addAnswer]: (state, answer) => state.answers = state.answers.concat(answer),
 
         [mutations.replaceAnswer]: (state, answer) => {
             state.answers = state.answers.map(a => answer.id === a.id ? answer : a)
