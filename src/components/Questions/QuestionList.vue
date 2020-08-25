@@ -26,6 +26,10 @@ export default {
         questions() { return store.getters[getters.questions] },
     },
 
+    beforeCreate() {
+        store.dispatch(actions.flushQuestions)
+    },
+
     mounted() {
         this.getQuestions()
     },

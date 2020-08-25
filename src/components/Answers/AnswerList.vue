@@ -27,6 +27,10 @@ export default {
         answers() { return store.getters[getters.answers] },
     },
 
+    beforeCreate() {
+        store.dispatch(actions.flushAnswers)
+    },
+
     mounted() {
         this.getAnswers()
     },

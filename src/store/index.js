@@ -39,6 +39,8 @@ const store = new Vuex.Store({
 
         [mutations.setExams]: (state, exams) => state.exams = exams,
 
+        [mutations.flushExams]: state => state.exams = initialState.exams,
+
         [mutations.addExam]: (state, exam) => state.exams = state.exams.concat(exam),
 
         [mutations.replaceExam]: (state, exam) => state.exams = state.exams.map(e => exam.id === e.id ? exam : e),
@@ -47,6 +49,8 @@ const store = new Vuex.Store({
 
 
         [mutations.setQuestions]: (state, questions) => state.questions = questions,
+
+        [mutations.flushQuestions]: state => state.questions = initialState.questions,
 
         [mutations.addQuestion]: (state, question) => state.questions = state.questions.concat(question),
 
@@ -58,6 +62,8 @@ const store = new Vuex.Store({
 
 
         [mutations.setAnswers]: (state, answers) => state.answers = answers,
+
+        [mutations.flushAnswers]: state => state.answers = initialState.answers,
 
         [mutations.addAnswer]: (state, answer) => state.answers = state.answers.concat(answer),
 
@@ -96,6 +102,8 @@ const store = new Vuex.Store({
 
         },
 
+        [actions.flushExams]: ({ commit }) => commit(mutations.flushExams),
+
         [actions.getExams]: ({ commit }) => {
 
             return send({ action: actions.getExams })
@@ -130,6 +138,8 @@ const store = new Vuex.Store({
 
         },
 
+        [actions.flushQuestions]: ({ commit }) => commit(mutations.flushQuestions),
+
         [actions.getQuestions]: ({ commit }, payload) => {
 
             return send({ action: actions.getQuestions, payload })
@@ -163,6 +173,8 @@ const store = new Vuex.Store({
                 })
 
         },
+
+        [actions.flushAnswers]: ({ commit }) => commit(mutations.flushAnswers),
 
         [actions.getAnswers]: ({ commit }, payload) => {
 

@@ -22,6 +22,10 @@
             exams() { return store.getters[getters.exams] }
         },
 
+        beforeCreate() {
+            store.dispatch(actions.flushExams)
+        },
+
         mounted() {
             return helper.loaderWithAction(this, store.dispatch(actions.getExams))
         },
