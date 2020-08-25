@@ -40,7 +40,7 @@ export default {
                name="correct-answer"
                :checked="answer.isCorrect"
                :value="answer.id"
-               @click="correctAnswerSelected">
+               @change="correctAnswerSelected">
         {{ index }}:
         {{ answer.text }}
         <button @click="editButtonPressed">Редактировать</button>
