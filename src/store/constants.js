@@ -1,5 +1,7 @@
 export const mutations = {
 
+    flushState: 'flush state',
+
     setUser: 'set user',
 
     setExams: 'set exams',

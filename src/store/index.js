@@ -31,6 +31,9 @@ const store = new Vuex.Store({
 
     mutations: {
 
+        [mutations.flushState]: state => Object.assign(state, initialState),
+
+
         [mutations.setUser]: (state, user) => state.user = user,
 
 
@@ -78,7 +81,7 @@ const store = new Vuex.Store({
 
         [actions.logout]: ({ commit }) => {
 
-            commit(mutations.setUser, initialState.user)
+            commit(mutations.flushState)
             return logout().catch(() => {})
 
         },
