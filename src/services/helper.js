@@ -3,6 +3,7 @@ import {messages} from '@/services/messages'
 const isProduction = process.env.NODE_ENV === 'production'
 
 const isAdmin = user => user.roles.includes('admin')
+const isExaminee = user => user.roles.includes('examinee')
 
 const loaderWithAction = (caller, action) => {
 
@@ -15,7 +16,10 @@ const loaderWithAction = (caller, action) => {
 export const helper = {
 
     isProduction,
+
     isAdmin,
+    isExaminee,
+
     loaderWithAction,
 
 }
