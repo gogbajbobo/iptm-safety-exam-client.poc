@@ -1,36 +1,31 @@
 <script>
 
-    import { sendMessageToServer } from '@/socket'
-
     import { helper } from '@/services/helper'
 
     import store from '@/store'
     import { getters } from '@/store/constants'
 
     import AdminMenu from '@/components/AdminMenu'
-    import {logger} from '@/services/logger';
+    import ExamineeMenu from '@/components/ExamineeMenu'
+
 
     export default {
 
         name: 'Main',
 
-        components: { AdminMenu },
+        components: { AdminMenu, ExamineeMenu },
 
         computed: {
 
             user() { return store.getters[getters.user] },
             isAdmin() { return helper.isAdmin(this.user) },
+            isExaminee() { return helper.isExaminee(this.user) },
 
         },
 
         methods: {
 
-            testButtonClicked() {
-                sendMessageToServer({ action: 'create question', payload: { exam: 1, text: 'test question'} })
-                    .catch(err => logger.error(err))
-            }
-
-        }
+        },
 
     }
 
@@ -40,10 +35,14 @@
 
     <div>
 
-        <button @click="testButtonClicked">Test</button>
-
         <div v-if="isAdmin">
+            {{ user.roles }}
             <admin-menu></admin-menu>
+        </div>
+
+        <div v-if="isExaminee">
+            {{ user.roles }}
+            <examinee-menu></examinee-menu>
         </div>
 
     </div>
