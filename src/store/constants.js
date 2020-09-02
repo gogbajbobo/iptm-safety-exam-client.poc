@@ -1,26 +1,26 @@
 export const mutations = {
 
-    flushState: 'flush state',
+    flushState: 'flushState',
 
-    setUser: 'set user',
+    setUser: 'setUser',
 
-    setExams: 'set exams',
-    flushExams: 'flush exams',
-    addExam: 'add exam',
-    replaceExam: 'replace exam',
-    deleteExam: 'delete exam',
+    setExams: 'setExams',
+    flushExams: 'flushExams',
+    addExam: 'addExam',
+    replaceExam: 'replaceExam',
+    deleteExam: 'deleteExam',
 
-    setQuestions: 'set questions',
-    flushQuestions: 'flush question',
-    addQuestion: 'add question',
-    replaceQuestion: 'replace question',
-    deleteQuestion: 'delete question',
+    setQuestions: 'setQuestions',
+    flushQuestions: 'flushQuestions',
+    addQuestion: 'addQuestion',
+    replaceQuestion: 'replaceQuestion',
+    deleteQuestion: 'deleteQuestion',
 
-    setAnswers: 'set answers',
-    flushAnswers: 'flush answers',
-    addAnswer: 'add answer',
-    replaceAnswer: 'replace answer',
-    deleteAnswer: 'delete answer',
+    setAnswers: 'setAnswers',
+    flushAnswers: 'flushAnswers',
+    addAnswer: 'addAnswer',
+    replaceAnswer: 'replaceAnswer',
+    deleteAnswer: 'deleteAnswer',
 
 }
 
@@ -29,24 +29,24 @@ export const actions = {
     login: 'login',
     logout: 'logout',
 
-    createExam: 'create exam',
-    flushExams: 'flush exams',
-    getExams: 'get exams',
-    updateExam: 'update exam',
-    deleteExam: 'delete exam',
+    createExam: 'createExam',
+    flushExams: 'flushExams',
+    getExams: 'getExams',
+    updateExam: 'updateExam',
+    deleteExam: 'deleteExam',
 
-    createQuestion: 'create question',
-    flushQuestions: 'flush question',
-    getQuestions: 'get questions',
-    updateQuestion: 'update question',
-    deleteQuestion: 'delete question',
+    createQuestion: 'createQuestion',
+    flushQuestions: 'flushQuestions',
+    getQuestions: 'getQuestions',
+    updateQuestion: 'updateQuestion',
+    deleteQuestion: 'deleteQuestion',
 
-    createAnswer: 'create answer',
-    flushAnswers: 'flush answers',
-    getAnswers: 'get answers',
-    updateAnswer: 'update answer',
-    setAnswerAsCorrect: 'set answer as correct',
-    deleteAnswer: 'delete answer',
+    createAnswer: 'createAnswer',
+    flushAnswers: 'flushAnswers',
+    getAnswers: 'getAnswers',
+    updateAnswer: 'updateAnswer',
+    setAnswerAsCorrect: 'setAnswerAsCorrect',
+    deleteAnswer: 'deleteAnswer',
 
 }
 
