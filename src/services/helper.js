@@ -12,4 +12,10 @@ const loaderWithAction = (caller, action) => {
 }
 
 
-export const helper = { isProduction, isAdmin, loaderWithAction }
+export const helper = {
+
+    isProduction,
+    isAdmin,
+    loaderWithAction,
+
+}
