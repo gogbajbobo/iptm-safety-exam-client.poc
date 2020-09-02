@@ -3,21 +3,19 @@ import Vuex from 'vuex'
 import PersistedState from 'vuex-persistedstate'
 import createMutationsSharer from 'vuex-shared-mutations'
 
-import { mutations, actions, getters } from '@/store/constants'
-
-import { login, logout } from '@/services/requests'
-import EventBus, { events } from '@/services/event.bus'
+import { mutations } from '@/store/constants'
 
 import examStore from '@/store/exam'
 import questionStore from '@/store/question'
 import answerStore from '@/store/answer'
+import authStore from '@/store/auth'
 
 
 Vue.use(Vuex)
 
 const initialState = {
 
-    user: null,
+    ...authStore.state,
     ...examStore.state,
     ...questionStore.state,
     ...answerStore.state,
@@ -35,8 +33,7 @@ const store = new Vuex.Store({
 
         [mutations.flushState]: state => Object.assign(state, initialState),
 
-        [mutations.setUser]: (state, user) => state.user = user,
-
+        ...authStore.mutations,
         ...examStore.mutations,
         ...questionStore.mutations,
         ...answerStore.mutations,
@@ -45,21 +42,7 @@ const store = new Vuex.Store({
 
     actions: {
 
-        [actions.login]: ({ commit }, { username, password }) => {
-
-            return login({ username, password })
-                .then(user => commit(mutations.setUser, user))
-                .catch(() => {})
-
-        },
-
-        [actions.logout]: ({ commit }) => {
-
-            commit(mutations.flushState)
-            return logout().catch(() => {})
-
-        },
-
+        ...authStore.actions,
         ...examStore.actions,
         ...questionStore.actions,
         ...answerStore.actions,
@@ -68,10 +51,7 @@ const store = new Vuex.Store({
 
     getters: {
 
-        [getters.isAuthorized]: state => Boolean(state.user),
-
-        [getters.user]: state => state.user,
-
+        ...authStore.getters,
         ...examStore.getters,
         ...questionStore.getters,
         ...answerStore.getters,
@@ -85,12 +65,14 @@ const store = new Vuex.Store({
 
     strict: process.env.NODE_ENV !== 'production'
 
-})
+});
 
-store.watch(
-    state => state.user,
-    user => EventBus.$emit(user ? events.LOGIN : events.LOGOUT),
-)
+[ ...authStore.watch ].forEach(watch => store.watch(...watch))
+
+// store.watch(
+//     state => state.user,
+//     user => EventBus.$emit(user ? events.LOGIN : events.LOGOUT),
+// )
 
 
 export default store
