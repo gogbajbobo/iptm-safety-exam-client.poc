@@ -1,6 +1,8 @@
 import { logger } from '@/services/logger'
 import store from '@/store'
 import { actions } from '@/store/constants'
+import router from '@/router'
+import { paths } from '@/router/paths'
 
 export const SocketEvents = {
 
@@ -26,12 +28,12 @@ const errorHandler = data => {
     logger.error(data)
     const { code } = data
 
-    if (code === 401) {
-
+    if (code === 401)
         store.dispatch(actions.logout)
             .catch(logger.error)
 
-    }
+    if (code === 403)
+        router.currentRoute.path === paths.MAIN || router.push(paths.ROOT)
 
 }
 
