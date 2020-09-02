@@ -69,10 +69,5 @@ const store = new Vuex.Store({
 
 [ ...authStore.watch ].forEach(watch => store.watch(...watch))
 
-// store.watch(
-//     state => state.user,
-//     user => EventBus.$emit(user ? events.LOGIN : events.LOGOUT),
-// )
-
 
 export default store
