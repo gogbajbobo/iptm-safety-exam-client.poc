@@ -36,11 +36,11 @@
 
         methods: {
 
-            addExamButtonPressed() { this.isAdmin && router.push(paths.EXAM_FORM) },
+            addExam() { this.isAdmin && router.push(paths.EXAM_FORM) },
 
-            editExamButtonPressed(exam) { this.isAdmin && router.push({ path: `${ paths.EXAM_FORM }/${ exam?.id }` }) },
+            editExam(exam) { this.isAdmin && router.push({ path: `${ paths.EXAM_FORM }/${ exam?.id }` }) },
 
-            deleteExamButtonPressed(exam) {
+            deleteExam(exam) {
 
                 if (!this.isAdmin) return
 
@@ -69,12 +69,12 @@
             <exam-item :exam="exam"
                        :key="exam.id"
                        :user="user"
-                       @edit-exam="editExamButtonPressed(exam)"
-                       @delete-exam="deleteExamButtonPressed(exam)"/>
+                       @edit-exam="editExam(exam)"
+                       @delete-exam="deleteExam(exam)"
 
         </template>
 
-        <button v-if="isAdmin" @click="addExamButtonPressed">Добавить экзамен</button>
+        <button v-if="isAdmin" @click="addExam">Добавить экзамен</button>
 
     </div>
 
