@@ -19,7 +19,11 @@
         components: { ExamItem },
 
         computed: {
-            exams() { return store.getters[getters.exams] }
+
+            user() { return store.getters[getters.user] },
+            exams() { return store.getters[getters.exams] },
+            isAdmin() { return helper.isAdmin(this.user) },
+
         },
 
         beforeCreate() {
@@ -32,11 +36,13 @@
 
         methods: {
 
-            addExamButtonPressed() { router.push(paths.EXAM_FORM) },
+            addExamButtonPressed() { this.isAdmin && router.push(paths.EXAM_FORM) },
 
-            editExamButtonPressed(exam) { router.push({ path: `${ paths.EXAM_FORM }/${ exam?.id }` }) },
+            editExamButtonPressed(exam) { this.isAdmin && router.push({ path: `${ paths.EXAM_FORM }/${ exam?.id }` }) },
 
             deleteExamButtonPressed(exam) {
+
+                if (!this.isAdmin) return
 
                 if (messages.confirm(`Удалить экзамен ${ exam.title }?`)) {
                     return helper.loaderWithAction(this, store.dispatch(actions.deleteExam, exam.id))
@@ -62,12 +68,13 @@
 
             <exam-item :exam="exam"
                        :key="exam.id"
+                       :user="user"
                        @edit-exam="editExamButtonPressed(exam)"
                        @delete-exam="deleteExamButtonPressed(exam)"/>
 
         </template>
 
-        <button @click="addExamButtonPressed">Добавить экзамен</button>
+        <button v-if="isAdmin" @click="addExamButtonPressed">Добавить экзамен</button>
 
     </div>
 

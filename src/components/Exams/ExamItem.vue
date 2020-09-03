@@ -1,17 +1,24 @@
 <script>
 
+    import { helper } from '@/services/helper'
+
     export default {
 
         name: 'ExamItem',
 
         props: {
-            exam: { type: Object }
+            user: { type: Object },
+            exam: { type: Object },
+        },
+
+        computed: {
+            isAdmin() { return helper.isAdmin(this.user) },
         },
 
         methods: {
 
-            editButtonPressed() { this.$emit('edit-exam') },
-            deleteButtonPressed() { this.$emit('delete-exam') },
+            editButtonPressed() { this.isAdmin && this.$emit('edit-exam') },
+            deleteButtonPressed() { this.isAdmin && this.$emit('delete-exam') },
 
         },
 
@@ -27,8 +34,12 @@
 
             <h3>{{ exam.id }}. {{ exam.title }} </h3>
 
-            <button @click="editButtonPressed">Редактировать</button>
-            <button @click="deleteButtonPressed">Удалить</button>
+            <template v-if="isAdmin">
+
+                <button @click="editButtonPressed">Редактировать</button>
+                <button @click="deleteButtonPressed">Удалить</button>
+
+            </template>
 
         </article>
 
