@@ -23,6 +23,7 @@
             user() { return store.getters[getters.user] },
             exams() { return store.getters[getters.exams] },
             isAdmin() { return helper.isAdmin(this.user) },
+            isExaminee() { return helper.isExaminee(this.user) },
 
         },
 
@@ -50,6 +51,10 @@
 
             },
 
+            startExam(exam) {
+                this.isExaminee && router.push({ path: `${ paths.EXAM_TAKING }/${ exam?.id }` })
+            },
+
         }
 
     }
@@ -71,6 +76,7 @@
                        :user="user"
                        @edit-exam="editExam(exam)"
                        @delete-exam="deleteExam(exam)"
+                       @start-exam="startExam(exam)"/>
 
         </template>
 
