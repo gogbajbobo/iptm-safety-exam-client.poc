@@ -38,7 +38,6 @@
                 if (!this.isExaminee) return
 
                 const payload = { exam: this.examId, role: userRoles.examinee }
-
                 const action = store.dispatch(actions.getQuestions, payload)
                 return helper.loaderWithAction(this, action)
 
