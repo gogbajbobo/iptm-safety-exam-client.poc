@@ -4,6 +4,7 @@ import store from '@/store'
 import { actions, getters } from '@/store/constants'
 
 import { helper } from '@/services/helper'
+import { userRoles } from '@/services/constants'
 
 import router from '@/router'
 import { paths } from '@/router/paths'
@@ -23,7 +24,9 @@ export default {
     },
 
     computed: {
+        user() { return store.getters[getters.user] },
         questions() { return store.getters[getters.questions] },
+        isAdmin() { return helper.isAdmin(this.user) },
     },
 
     beforeCreate() {
@@ -38,7 +41,10 @@ export default {
 
         getQuestions() {
 
-            const action = store.dispatch(actions.getQuestions, { exam: this.examId })
+            if (!this.isAdmin) return
+
+            const payload = { exam: this.examId, role: userRoles.admin }
+            const action = store.dispatch(actions.getQuestions, payload)
             return helper.loaderWithAction(this, action)
 
         },
