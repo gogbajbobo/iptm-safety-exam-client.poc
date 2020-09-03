@@ -13,12 +13,14 @@
 
         computed: {
             isAdmin() { return helper.isAdmin(this.user) },
+            isExaminee() { return helper.isExaminee(this.user) },
         },
 
         methods: {
 
             editButtonPressed() { this.isAdmin && this.$emit('edit-exam') },
             deleteButtonPressed() { this.isAdmin && this.$emit('delete-exam') },
+            startExamButtonPressed() { this.isExaminee && this.$emit('start-exam') },
 
         },
 
@@ -32,13 +34,20 @@
 
         <article v-if="exam" class="exam-item-article">
 
-            <h3>{{ exam.id }}. {{ exam.title }} </h3>
+            <h3>
+                <span v-if="isAdmin">{{ exam.id }}. </span>
+                <span>{{ exam.title }} </span>
+            </h3>
 
             <template v-if="isAdmin">
 
                 <button @click="editButtonPressed">Редактировать</button>
                 <button @click="deleteButtonPressed">Удалить</button>
 
+            </template>
+
+            <template v-if="isExaminee">
+                <button @click="startExamButtonPressed">Начать экзамен</button>
             </template>
 
         </article>
