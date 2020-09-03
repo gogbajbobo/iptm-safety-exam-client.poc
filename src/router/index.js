@@ -5,6 +5,7 @@ import Login from '@/components/Login'
 import Main from '@/components/Main'
 import ExamList from '@/components/Exams/ExamList'
 import ExamForm from '@/components/Exams/ExamForm'
+import ExamTaking from '@/components/Exams/ExamTaking'
 import QuestionForm from '@/components/Questions/QuestionForm'
 import AnswerForm from '@/components/Answers/AnswerForm'
 
@@ -58,6 +59,16 @@ const examForm = {
     },
 }
 
+const examTaking = {
+    path: `${ paths.EXAM_TAKING }/:examId`,
+    name: ExamTaking.name,
+    component: ExamTaking,
+    props: true,
+    meta: {
+        requireRoles: [ userRoles.examinee ],
+    },
+}
+
 const questionForm = {
     path: `${ paths.QUESTION_FORM }/:examId/:questionId?`,
     name: QuestionForm.name,
@@ -83,6 +94,7 @@ const routes = [
     _, main,
     exams,
     examForm,
+    examTaking,
     questionForm,
     answerForm,
 ]
