@@ -14,7 +14,7 @@ import store from '@/store'
 import { getters } from '@/store/constants'
 
 import { checkSocket } from '@/socket'
-
+import { userRoles } from '@/services/constants'
 import { paths } from '@/router/paths'
 
 Vue.use(Router)
@@ -53,6 +53,9 @@ const examForm = {
     name: ExamForm.name,
     component: ExamForm,
     props: true,
+    meta: {
+        requireRoles: [ userRoles.admin ],
+    },
 }
 
 const questionForm = {
@@ -60,6 +63,9 @@ const questionForm = {
     name: QuestionForm.name,
     component: QuestionForm,
     props: true,
+    meta: {
+        requireRoles: [ userRoles.admin ],
+    },
 }
 
 const answerForm = {
@@ -67,6 +73,9 @@ const answerForm = {
     name: AnswerForm.name,
     component: AnswerForm,
     props: true,
+    meta: {
+        requireRoles: [ userRoles.admin ],
+    },
 }
 
 const routes = [
@@ -94,17 +103,30 @@ router.beforeEach((to, from, next) => {
 
     if (!isAuthorized) {
 
-        if (anonymousAccessRoutes.includes(to.name)) {
-            return next()
-        } else {
-            return next({ name: Login.name })
-        }
+        return anonymousAccessRoutes.includes(to.name)
+            ? next()
+            : next({ name: Login.name })
 
     }
 
-    return next()
+    if (isAuthorized)
+        return checkRoles(to, from, next)
 
 })
+
+const checkRoles = (to, from, next) => {
+
+    const { requireRoles } = to.meta
+    const { roles } = store.getters[getters.user]
+
+    if (!requireRoles) return next()
+
+    requireRoles.some(role => roles.includes(role))
+        ? next()
+        : next({ name: 'Main' })
+
+}
+
 
 const loginHandler = () => router.push(paths.MAIN)
 const logoutHandler = () => router.push(paths.LOGIN)
