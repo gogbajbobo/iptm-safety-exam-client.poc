@@ -76,6 +76,12 @@
                 messages.alert('Ваше время истекло.')
                 this.examFinished = true
 
+                const examData = new FormData(this.$refs.examTakingForm)
+                const examDataObject = {}
+                examData.forEach((value, key) => examDataObject[key] = value)
+
+                console.log(examDataObject)
+
             },
 
         },
@@ -101,13 +107,17 @@
 
             </legend>
 
-            <template v-for="(question, index) in questions">
+            <form ref="examTakingForm">
 
-                <exam-taking-question :question="question"
-                                      :index="index+1"
-                                      :key="question.id"></exam-taking-question>
+                <template v-for="(question, index) in questions">
 
-            </template>
+                    <exam-taking-question :question="question"
+                                          :index="index+1"
+                                          :key="question.id"></exam-taking-question>
+
+                </template>
+
+            </form>
 
         </fieldset>
 
