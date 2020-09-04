@@ -27,7 +27,7 @@
         data() {
             return {
                 runTimer: false,
-                examFinished: false,
+                examDataObject: {},
             }
         },
 
@@ -74,17 +74,34 @@
             timerFinished() {
 
                 messages.alert('Ваше время истекло.')
-                this.examFinished = true
+                this.runTimer = false
 
-                const examData = new FormData(this.$refs.examTakingForm)
-                const examDataObject = {}
-                examData.forEach((value, key) => examDataObject[key] = value)
+            },
 
-                console.log(examDataObject)
+            checkAnswersButtonClicked() {
+
+                if (this.runTimer)
+                    if (!messages.confirm('У вас ещё есть время. Закончить экзамен и проверить ответы?'))
+                        return
+
+                this.runTimer = false
+
+                this.$nextTick(() => console.log(this.examDataObject))
 
             },
 
         },
+
+        watch: {
+
+            runTimer: function () {
+
+                const examData = new FormData(this.$refs.examTakingForm)
+                examData.forEach((value, key) => this.examDataObject[key] = value)
+
+            }
+
+        }
 
     }
 
@@ -119,6 +136,8 @@
                 </template>
 
             </form>
+
+            <button @click="checkAnswersButtonClicked">Проверить ответы</button>
 
         </fieldset>
 
