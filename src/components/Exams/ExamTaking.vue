@@ -84,23 +84,37 @@
 
     <div>
 
-        <span>{{ exam.title }}</span>
+        <fieldset>
 
-        <exam-timer :timer-value="10"
-                    :run-timer="runTimer"
-                    @timer-finished="timerFinished"></exam-timer>
+            <legend>
 
-        <template v-for="question in questions">
+                <span>{{ exam.title }}</span>
 
-            <exam-taking-question :question="question"
-                                  :key="question.id"></exam-taking-question>
+                <exam-timer class="exam-timer"
+                            :timer-value="10"
+                            :run-timer="runTimer"
+                            @timer-finished="timerFinished"></exam-timer>
 
-        </template>
+            </legend>
+
+            <template v-for="question in questions">
+
+                <exam-taking-question :question="question"
+                                      :key="question.id"></exam-taking-question>
+
+            </template>
+
+        </fieldset>
 
     </div>
 
 </template>
 
 <style scoped>
+
+    .exam-timer {
+        float: right;
+        padding-left: 8px;
+    }
 
 </style>
