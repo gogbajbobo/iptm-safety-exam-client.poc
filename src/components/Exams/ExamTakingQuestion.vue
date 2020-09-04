@@ -26,6 +26,8 @@
 
         {{ question.id }} {{ question.text }}
 
+        <input type="hidden" :name="question.id">
+
         <template v-for="(answer, index) in question.answers">
 
             <exam-taking-answer :answer="answer"
