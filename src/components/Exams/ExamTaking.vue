@@ -1,12 +1,15 @@
 <script>
 
     import { helper } from '@/services/helper'
+    import { messages } from '@/services/messages'
     import { userRoles } from '@/services/constants'
 
     import store from '@/store'
     import { actions, getters } from '@/store/constants'
 
     import ExamTakingQuestion from '@/components/Exams/ExamTakingQuestion'
+    import router from '@/router';
+    import {paths} from '@/router/paths';
 
 
     export default {
@@ -27,11 +30,19 @@
 
         },
 
-        mounted() {
-            this.getQuestions()
+        created() {
+            this.showInformation()
         },
 
         methods: {
+
+            showInformation() {
+
+                messages.confirm('Время на экзамен 10 минут. Выберите ответы на вопросы.')
+                    ? this.getQuestions()
+                    : router.push(paths.EXAM_LIST)
+
+            },
 
             getQuestions() {
 
