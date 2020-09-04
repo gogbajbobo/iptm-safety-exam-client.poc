@@ -32,6 +32,7 @@ export const actions = {
     createExam: 'createExam',
     flushExams: 'flushExams',
     getExams: 'getExams',
+    getExamById: 'getExamById',
     updateExam: 'updateExam',
     deleteExam: 'deleteExam',
 
@@ -55,6 +56,7 @@ export const getters = {
     isAuthorized: 'isAuthorized',
     user: 'user',
     exams: 'exams',
+    examById: 'examById',
     questions: 'questions',
     answers: 'answers'
 

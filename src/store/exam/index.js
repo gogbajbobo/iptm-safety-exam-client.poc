@@ -45,6 +45,16 @@ const examStore = {
 
         },
 
+        [actions.getExamById]: ({ commit }, { examId }) => {
+
+            return send({ action: actions.getExamById, payload: { examId } })
+                .then(exam => {
+                    commit(mutations.addExam, exam)
+                    return exam
+                })
+
+        },
+
         [actions.updateExam]: ({ commit }, payload) => {
 
             return send({ action: actions.updateExam, payload })
@@ -67,6 +77,10 @@ const examStore = {
     getters: {
 
         [getters.exams]: state => state.exams,
+
+        [getters.examById]: state => examId => {
+            return state.exams.find(exam => exam.id === Number(examId))
+        },
 
     },
 
