@@ -33,7 +33,7 @@
         computed: {
 
             user() { return store.getters[getters.user] },
-            exam() { return store.getters[getters.examById](this.examId) },
+            exam() { return store.getters[getters.examById](this.examId) || { title: '' } },
             questions() { return store.getters[getters.questions] },
             isExaminee() { return helper.isExaminee(this.user) },
 
@@ -84,7 +84,7 @@
 
     <div>
 
-        <span>ExamTaking</span>
+        <span>{{ exam.title }}</span>
 
         <exam-timer :timer-value="10"
                     :run-timer="runTimer"
