@@ -58,9 +58,8 @@
                 if (!this.isExaminee) return
                 if (!this.examId) return
 
-                const { examId } = this
                 const getExamAction = this.exam ? Promise.resolve()
-                                                : store.dispatch(actions.getExamById, { examId })
+                                                : store.dispatch(actions.getExamById, this.examId)
 
                 const payload = { exam: this.examId, role: userRoles.examinee }
                 const getQuestionsAction = store.dispatch(actions.getQuestions, payload)

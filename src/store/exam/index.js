@@ -45,9 +45,9 @@ const examStore = {
 
         },
 
-        [actions.getExamById]: ({ commit }, { examId }) => {
+        [actions.getExamById]: ({ commit }, payload) => {
 
-            return send({ action: actions.getExamById, payload: { examId } })
+            return send({ action: actions.getExamById, payload })
                 .then(exam => {
                     commit(mutations.addExam, exam)
                     return exam
