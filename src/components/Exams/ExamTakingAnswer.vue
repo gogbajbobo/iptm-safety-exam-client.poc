@@ -8,7 +8,6 @@
             index: { type: Number },
             questionId: { type: [ String, Number ] },
             answer: { type: Object },
-            examFinished: { type: Boolean },
         },
 
     }
@@ -22,7 +21,6 @@
         <input type="radio"
                ref="radioInput"
                title="answer-button"
-               :disabled="examFinished"
                :name="questionId"
                :value="answer.id">
         {{ index }}:

@@ -12,7 +12,6 @@
         props: {
             index: { type: Number },
             question: { type: Object },
-            examFinished: { type: Boolean },
         },
 
     }
@@ -32,7 +31,6 @@
             <exam-taking-answer :answer="answer"
                                 :index="index+1"
                                 :question-id="question.id"
-                                :exam-finished="examFinished"
                                 :key="answer.id"></exam-taking-answer>
 
         </template>

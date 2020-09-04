@@ -88,7 +88,7 @@
 
     <div>
 
-        <fieldset>
+        <fieldset :disabled="examFinished">
 
             <legend>
 
@@ -105,7 +105,6 @@
 
                 <exam-taking-question :question="question"
                                       :index="index+1"
-                                      :exam-finished="examFinished"
                                       :key="question.id"></exam-taking-question>
 
             </template>
