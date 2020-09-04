@@ -33,7 +33,6 @@ export const actions = {
     flushExams: 'flushExams',
     getExams: 'getExams',
     getExamById: 'getExamById',
-    checkExam: 'checkExam',
     updateExam: 'updateExam',
     deleteExam: 'deleteExam',
 
@@ -49,6 +48,7 @@ export const actions = {
     updateAnswer: 'updateAnswer',
     setAnswerAsCorrect: 'setAnswerAsCorrect',
     deleteAnswer: 'deleteAnswer',
+    checkAnswers: 'checkAnswers',
 
 }
 

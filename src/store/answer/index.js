@@ -71,6 +71,8 @@ const answerStore = {
 
         },
 
+        [actions.checkAnswers]: (context, payload) => send({ action: actions.checkAnswers, payload }),
+
     },
 
     getters: {
