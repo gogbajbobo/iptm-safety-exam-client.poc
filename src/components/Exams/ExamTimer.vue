@@ -40,17 +40,17 @@
                 this.timeLeft = this.timerValue
 
                 this.timer = setInterval(() => {
-                    this.timeLeft ? this.timeLeft -= 1 : this.stopTimer()
+                    this.timeLeft ? this.timeLeft -= 1 : this.stopTimer(true)
                 }, 1000)
 
             },
 
-            stopTimer() {
+            stopTimer(shouldNotify) {
 
                 if (!this.timer) return
 
                 clearInterval(this.timer)
-                this.$emit('timer-finished')
+                shouldNotify && this.$emit('timer-finished')
                 this.timer = null
 
             },
