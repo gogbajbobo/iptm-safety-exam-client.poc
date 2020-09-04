@@ -12,6 +12,7 @@
         props: {
             index: { type: Number },
             question: { type: Object },
+            disabled: { type: Boolean, default: false },
         },
 
     }
@@ -20,7 +21,7 @@
 
 <template>
 
-    <fieldset>
+    <fieldset :disabled="disabled">
 
         <legend>Вопрос {{ index }}</legend>
 

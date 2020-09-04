@@ -94,7 +94,7 @@
 
     <div>
 
-        <fieldset :disabled="examFinished">
+        <fieldset>
 
             <legend>
 
@@ -113,6 +113,7 @@
 
                     <exam-taking-question :question="question"
                                           :index="index+1"
+                                          :disabled="!runTimer"
                                           :key="question.id"></exam-taking-question>
 
                 </template>
