@@ -86,7 +86,16 @@
 
                 this.runTimer = false
 
-                this.$nextTick(() => console.log(this.examDataObject))
+                this.$nextTick(this.checkAnswers)
+
+            },
+
+            checkAnswers() {
+
+                const payload = { answers: this.examDataObject, exam: this.examId }
+
+                const action = store.dispatch(actions.checkExam, payload)
+                return helper.loaderWithAction(this, action)
 
             },
 

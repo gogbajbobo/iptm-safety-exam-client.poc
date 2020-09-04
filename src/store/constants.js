@@ -33,6 +33,7 @@ export const actions = {
     flushExams: 'flushExams',
     getExams: 'getExams',
     getExamById: 'getExamById',
+    checkExam: 'checkExam',
     updateExam: 'updateExam',
     deleteExam: 'deleteExam',
 

@@ -55,6 +55,8 @@ const examStore = {
 
         },
 
+        [actions.checkExam]: (context, payload) => send({ action: actions.checkExam, payload}),
+
         [actions.updateExam]: ({ commit }, payload) => {
 
             return send({ action: actions.updateExam, payload })
