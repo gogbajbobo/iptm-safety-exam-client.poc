@@ -19,7 +19,6 @@
     <div>
 
         <input type="radio"
-               ref="radioInput"
                title="answer-button"
                :name="questionId"
                :value="answer.id">
