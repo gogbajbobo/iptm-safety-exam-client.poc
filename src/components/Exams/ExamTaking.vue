@@ -33,6 +33,7 @@
         computed: {
 
             user() { return store.getters[getters.user] },
+            exam() { return store.getters[getters.examById](this.examId) },
             questions() { return store.getters[getters.questions] },
             isExaminee() { return helper.isExaminee(this.user) },
 
@@ -55,10 +56,18 @@
             getQuestions() {
 
                 if (!this.isExaminee) return
+                if (!this.examId) return
+
+                const { examId } = this
+                const getExamAction = this.exam ? Promise.resolve()
+                                                : store.dispatch(actions.getExamById, { examId })
 
                 const payload = { exam: this.examId, role: userRoles.examinee }
-                const action = store.dispatch(actions.getQuestions, payload).then(() => this.runTimer = true)
-                return helper.loaderWithAction(this, action)
+                const getQuestionsAction = store.dispatch(actions.getQuestions, payload)
+
+                const combinedAction = getExamAction.then(() => getQuestionsAction).then(() => this.runTimer = true)
+
+                return helper.loaderWithAction(this, combinedAction)
 
             },
 
