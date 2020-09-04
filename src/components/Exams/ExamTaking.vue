@@ -27,6 +27,7 @@
         data() {
             return {
                 runTimer: false,
+                examFinished: false,
             }
         },
 
@@ -71,7 +72,10 @@
             },
 
             timerFinished() {
+
                 messages.alert('Ваше время истекло.')
+                this.examFinished = true
+
             },
 
         },
@@ -97,9 +101,11 @@
 
             </legend>
 
-            <template v-for="question in questions">
+            <template v-for="(question, index) in questions">
 
                 <exam-taking-question :question="question"
+                                      :index="index+1"
+                                      :exam-finished="examFinished"
                                       :key="question.id"></exam-taking-question>
 
             </template>
