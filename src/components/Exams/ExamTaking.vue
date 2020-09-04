@@ -11,16 +11,23 @@
     import { paths } from '@/router/paths'
 
     import ExamTakingQuestion from '@/components/Exams/ExamTakingQuestion'
+    import ExamTimer from '@/components/Exams/ExamTimer'
 
 
     export default {
 
         name: 'ExamTaking',
 
-        components: { ExamTakingQuestion },
+        components: { ExamTakingQuestion, ExamTimer },
 
         props: {
             examId: { type: String },
+        },
+
+        data() {
+            return {
+                runTimer: false,
+            }
         },
 
         computed: {
@@ -50,9 +57,13 @@
                 if (!this.isExaminee) return
 
                 const payload = { exam: this.examId, role: userRoles.examinee }
-                const action = store.dispatch(actions.getQuestions, payload)
+                const action = store.dispatch(actions.getQuestions, payload).then(() => this.runTimer = true)
                 return helper.loaderWithAction(this, action)
 
+            },
+
+            timerFinished() {
+                messages.alert('Ваше время истекло.')
             },
 
         },
@@ -67,6 +78,9 @@
 
         <span>ExamTaking</span>
 
+        <exam-timer :timer-value="10"
+                    :run-timer="runTimer"
+                    @timer-finished="timerFinished"></exam-timer>
 
         <template v-for="question in questions">
 
