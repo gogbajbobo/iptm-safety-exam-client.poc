@@ -10,7 +10,9 @@
         components: { ExamTakingAnswer },
 
         props: {
+            index: { type: Number },
             question: { type: Object },
+            examFinished: { type: Boolean },
         },
 
     }
@@ -19,12 +21,23 @@
 
 <template>
 
-    <div>
+    <fieldset>
+
+        <legend>Вопрос {{ index }}</legend>
+
         {{ question.id }} {{ question.text }}
-        <template v-for="answer in question.answers">
-            <exam-taking-answer :answer="answer" :key="answer.id"></exam-taking-answer>
+
+        <template v-for="(answer, index) in question.answers">
+
+            <exam-taking-answer :answer="answer"
+                                :index="index+1"
+                                :question-id="question.id"
+                                :exam-finished="examFinished"
+                                :key="answer.id"></exam-taking-answer>
+
         </template>
-    </div>
+
+    </fieldset>
 
 </template>
 
