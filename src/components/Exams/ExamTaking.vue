@@ -7,9 +7,10 @@
     import store from '@/store'
     import { actions, getters } from '@/store/constants'
 
+    import router from '@/router'
+    import { paths } from '@/router/paths'
+
     import ExamTakingQuestion from '@/components/Exams/ExamTakingQuestion'
-    import router from '@/router';
-    import {paths} from '@/router/paths';
 
 
     export default {
@@ -63,10 +64,15 @@
 <template>
 
     <div>
-        ExamTaking
+
+        <span>ExamTaking</span>
+
 
         <template v-for="question in questions">
-            <exam-taking-question :question="question" :key="question.id"></exam-taking-question>
+
+            <exam-taking-question :question="question"
+                                  :key="question.id"></exam-taking-question>
+
         </template>
 
     </div>
