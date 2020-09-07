@@ -13,6 +13,8 @@
 
             examButtonPressed() { router.push(paths.EXAM_LIST) },
 
+            examResultsButtonPressed() { router.push(paths.EXAM_RESULTS) },
+
             testExamCreateButtonPressed() { createTestExam() },
 
         }
@@ -26,6 +28,7 @@
     <div class="admin-menu">
 
         <button @click="examButtonPressed">Список экзаменов</button>
+        <button @click="examResultsButtonPressed">Результаты</button>
         <button @click="testExamCreateButtonPressed">Создать тестовый экзамен</button>
 
     </div>
