@@ -8,6 +8,7 @@ import ExamForm from '@/components/Exams/ExamForm'
 import ExamTaking from '@/components/Exams/ExamTaking'
 import QuestionForm from '@/components/Questions/QuestionForm'
 import AnswerForm from '@/components/Answers/AnswerForm'
+import ExamResultList from '@/components/ExamResults/ExamResultList'
 
 import EventBus, { events } from '@/services/event.bus'
 
@@ -89,6 +90,15 @@ const answerForm = {
     },
 }
 
+const examResults = {
+    path: `${ paths.EXAM_RESULTS }`,
+    name: ExamResultList.name,
+    component: ExamResultList,
+    meta: {
+        requireRoles: [ userRoles.admin ],
+    },
+}
+
 const routes = [
     login,
     _, main,
@@ -97,6 +107,7 @@ const routes = [
     examTaking,
     questionForm,
     answerForm,
+    examResults,
 ]
 
 const router = new Router({
