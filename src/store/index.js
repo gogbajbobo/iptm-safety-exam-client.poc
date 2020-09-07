@@ -9,6 +9,7 @@ import examStore from '@/store/exam'
 import questionStore from '@/store/question'
 import answerStore from '@/store/answer'
 import authStore from '@/store/auth'
+import examResultStore from '@/store/examResult'
 
 
 Vue.use(Vuex)
@@ -19,6 +20,7 @@ const initialState = {
     ...examStore.state,
     ...questionStore.state,
     ...answerStore.state,
+    ...examResultStore.state,
 
 }
 
@@ -37,6 +39,7 @@ const store = new Vuex.Store({
         ...examStore.mutations,
         ...questionStore.mutations,
         ...answerStore.mutations,
+        ...examResultStore.mutations,
 
     },
 
@@ -46,6 +49,7 @@ const store = new Vuex.Store({
         ...examStore.actions,
         ...questionStore.actions,
         ...answerStore.actions,
+        ...examResultStore.actions,
 
     },
 
@@ -55,6 +59,7 @@ const store = new Vuex.Store({
         ...examStore.getters,
         ...questionStore.getters,
         ...answerStore.getters,
+        ...examResultStore.getters,
 
     },
 

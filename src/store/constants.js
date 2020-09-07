@@ -50,6 +50,8 @@ export const actions = {
     deleteAnswer: 'deleteAnswer',
     checkAnswers: 'checkAnswers',
 
+    getExamResults: 'getExamResults',
+
 }
 
 export const getters = {
