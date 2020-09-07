@@ -4,6 +4,10 @@
 
         name: 'ExamResultItem',
 
+        props: {
+            examResult: { type: Object }
+        }
+
     }
 
 </script>
@@ -11,7 +15,7 @@
 <template>
 
     <div>
-
+        {{ examResult.id }}: {{ examResult.numberOfCorrectAnswers }}
     </div>
 
 </template>
