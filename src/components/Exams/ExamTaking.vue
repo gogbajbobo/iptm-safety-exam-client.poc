@@ -92,7 +92,10 @@
 
             checkAnswers() {
 
-                const action = store.dispatch(actions.checkAnswers, this.examDataObject)
+                const action = store.dispatch(
+                    actions.checkAnswers,
+                    { exam: this.examId, answers: this.examDataObject}
+                )
                     .then(result => messages.alert(`Правильных ответов: ${ result }`))
                 return helper.loaderWithAction(this, action)
 
