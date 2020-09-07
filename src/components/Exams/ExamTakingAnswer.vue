@@ -24,6 +24,7 @@
                :value="answer.id">
         {{ index }}:
         {{ answer.id }} {{ answer.text }}
+<!--        {{ answer.isCorrect }}-->
 
     </div>
 
